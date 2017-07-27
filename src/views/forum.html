@@ -4,31 +4,26 @@
             <a class="navbar-brand">Hi {{username}} Dac Forum</a>
             <ul class="nav navbar-nav">
                 <form id="qform" class="navbar-form pull-left" role="search">
-                    <div class="dropdown" style="float: left;margin-right: 10px;">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="true">
-                            Search Tag wise
-                                <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                            <li value="all" class="search-tag">All</li>
+
+                    <select style="float: left;margin-right: 10px;">
+                            <option value="all" selected class="search-tag">All</option>
                             <li role="separator" class="divider"></li>
-                            <li value="cpp" class="search-tag">C++</li>
-                            <li value="ds" class="search-tag">Data Structures</li>
-                            <li value="os" class="search-tag">Operating System</li>
-                            <li value="java" class="search-tag">Java Technologies</li>
-                            <li value="awp" class="search-tag">Web Programming</li>
-                            <li value="net" class="search-tag">Dotnet</li>
-                            <li value="se" class="search-tag">Software Engg.</li>
-                            <li value="se" class="search-tag">Database Technologies</li>
-                            <li value="ccee" class="search-tag">CCEE</li>
-                            <li value="placement" class="search-tag">Placement</li>
-                            <li value="communication" class="search-tag">Communications</li>
-                            <li value="apti" class="search-tag">Aptitude</li>
+                            <option value="cpp" class="search-tag">C++</option>
+                            <option value="ds" class="search-tag">Data Structures</option>
+                            <option value="os" class="search-tag">Operating System</option>
+                            <option value="java" class="search-tag">Java Technologies</option>
+                            <option value="awp" class="search-tag">Web Programming</option>
+                            <option value="net" class="search-tag">Dotnet</option>
+                            <option value="se" class="search-tag">Software Engg.</option>
+                            <option value="se" class="search-tag">Database Technologies</option>
+                            <option value="ccee" class="search-tag">CCEE</option>
+                            <option value="placement" class="search-tag">Placement</option>
+                            <option value="communication" class="search-tag">Communications</option>
+                            <option value="apti" class="search-tag">Aptitude</option>
                             <li role="separator" class="divider"></li>
-                            <li value="other" class="search-tag">Other</li>
-                        </ul>
-                    </div>
+                            <option value="other" class="search-tag">Other</option>
+                        </select>
+
                     <button type="button" class="btn btn-outline-info" style="margin-right: 507px;" ng-click="searchTagwise()">Search</button>
                     <button type="button" class="btn btn-outline-info logout" ng-click="performLogOut()">Logout</button>
                 </form>
@@ -39,7 +34,7 @@
     <div id="side-menu" role="navigation" style="z-index:0; margin-top: 67px;">
         <ul class="nav nav-list accordion">
             <li class="nav-header">
-                <div class="link" ng-click="goToHomePage();" style="position: fixed;"><i class="glyphicon glyphicon-home" ></i>Home</div>
+                <div class="link" ng-click="goToRespHomePage();" style="position: fixed;"><i class="glyphicon glyphicon-home"></i>Home</div>
             </li>
 
         </ul>
@@ -55,32 +50,25 @@
                                 Write your Question here...
                     </label>
                     <form class="row">
-                        <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="posts.agendaText"></textarea>
-                        <div class="dropdown" style="float: left;margin-right: 17px;margin-top: 15px;">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="true">
-                            Set Tag
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li value="all">All</li>
-                                <li role="separator" class="divider"></li>
-                                <li value="cpp">C++</li>
-                                <li value="ds">Data Structures</li>
-                                <li value="os">Operating System</li>
-                                <li value="java">Java Technologies</li>
-                                <li value="awp">Web Programming</li>
-                                <li value="net">Dotnet</li>
-                                <li value="se">Software Engg.</li>
-                                <li value="se">Database Technologies</li>
-                                <li value="ccee">CCEE</li>
-                                <li value="placement">Placement</li>
-                                <li value="communication">Communications</li>
-                                <li value="apti">Aptitude</li>
-                                <li role="separator" class="divider"></li>
-                                <li value="other">Other</li>
-                            </ul>
-                        </div>
+                        <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.question"></textarea>
+
+                        <select style="float: left;margin-right: 17px;margin-top: 15px;">
+                                <option value="cpp" ng-model="currentQuestion.tag">C++</option>
+                                <option value="ds" ng-model="currentQuestion.tag">Data Structures</option>
+                                <option value="os" ng-model="currentQuestion.tag">Operating System</option>
+                                <option value="java" ng-model="currentQuestion.tag">Java Technologies</option>
+                                <option value="awp" ng-model="currentQuestion.tag">Web Programming</option>
+                                <option value="net" ng-model="currentQuestion.tag">Dotnet</option>
+                                <option value="se" ng-model="currentQuestion.tag">Software Engg.</option>
+                                <option value="se" ng-model="currentQuestion.tag">Database Technologies</option>
+                                <option value="ccee" ng-model="currentQuestion.tag">CCEE</option>
+                                <option value="placement" ng-model="currentQuestion.tag">Placement</option>
+                                <option value="communication" ng-model="currentQuestion.tag">Communications</option>
+                                <option value="apti" ng-model="currentQuestion.tag">Aptitude</option>
+                                <option role="separator" class="divider"></option>
+                                <option value="other" ng-model="currentQuestion.tag">Other</option>
+                            </select>
+
                         <button class="btn btn-primary btn-block" style="width: 6%;margin-top: 16px;" type="submit" ng-click="postQuestion()">Post</button>
                         <dr>
 
@@ -95,50 +83,51 @@
                     <label style="margin-top: 1%; color:dodgerblue;">
                                 Questions to answer
                     </label>
-                    <div class="list-group-item">
+                    <div class="list-group-item" ng-repeat="item in unansweredQuestions">
                         <div class="row">
-                            <input class="form-control col-sm-6" placeholder="{{}}" disabled/>
-                            <button class="btn btn-primary btn-block" style="width: 8%;margin-top: 16px;float: left;" type="submit" ng-click="answerQuestion()">Answer</button>
-                            <input class="form-control col-sm-1" placeholder="tag" style="width: 10%;margin-left: 13px;margin-top: 16px;" placeholder="{{item.tag}}"
-                                disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 225px;">Posted By:{{Name}} at {{time}}</p>
+                            <input class="form-control col-sm-6" placeholder="{{item.question}}" disabled/>
+                            <button class="btn btn-primary btn-block" style="width: 8%;margin-top: 16px;float: left;" type="submit" data-toggle="modal"
+                                data-target="#myAnswer" ng-click="answerQuestion()">Answer</button>
+                            <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 225px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
                         </div>
                     </div>
                     <br>
                     <label style="margin-top: 1%; color:dodgerblue;">
                                 Answered Questions
                     </label>
-                    <div class="list-group-item">
+                    <div class="list-group-item" ng-repeat="item in answeredQuestions">
                         <div class="row">
                             <label style="margin-top: 1%; color:dodgerblue;">
                                 Question
                             </label>
-                            <input class="form-control col-sm-6" placeholder="{{question}}" disabled/>                           
-                            <input class="form-control col-sm-1" placeholder="tag" style="width: 10%;margin-top: 16px;" placeholder="{{item.tag}}"
-                                disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 150px;">Posted By:{{Name}} at {{time}}</p>
+                            <input class="form-control col-sm-6" placeholder="{{item.question}}" disabled/>
+                            <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="showAnswers()"></button>
+                            <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" type="submit"
+                                ng-click="addToAnswers()">New Answer</button>
+                            <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;"placeholder="{{item.tag}}" disabled></input>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 245px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
                         </div>
                         <br>
-                        <div class="list-group-item">
-                            <div class="row">
-                                <label style="margin-top: 1%; color:dodgerblue;">
+                        <label style="margin-top: 1%; color:dodgerblue;">
                                 Answers
-                                </label>
-                                <input class="form-control col-sm-6" placeholder="Answer will be here" disabled/>
-                                <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="addToAnswers()">New Answer</button>
-                                <button class="btn btn-primary btn-block" style="width: 13%;margin-top: -8px;float: left;" type="submit" ng-click="postComment()">Comment</button>
-                                <p style="font-size: 15px;margin-top: 55px;margin-left: 150px;">Answered By:{{Name}} at {{time}}</p>
+                        </label>
+                        <div class="list-group-item" ng-repeat="item in Answers">
+                            <div class="row">
+                                
+                                <input class="form-control col-sm-6" placeholder="{{item.answer}}" disabled/>
+                                <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="addToAnswers()">Comment</button>
+                                <p style="font-size: 15px;margin-top: 55px;margin-left: 150px;">Answered By:{{item.answeredBy}} at {{item.answeredTime}}</p>
 
                             </div>
                             <br>
-                            <div class="list-group-item">
-                                <div class="row">
-                                    <label style="margin-top: 1%; color:dodgerblue;">
-                                Previous Comments
+                            <label style="margin-top: 1%; color:dodgerblue;">
+                                Comments
                                 </label>
-                                    <input type="text" class="form-control col-sm-6" placeholder="Comment will be here" disabled/>
-                                    <p style="font-size: 15px;margin-top: 42px;">Comment By:{{Name}} at {{time}}</p>
-                                    <button class="btn btn-primary btn-block" style="width: 13%;margin-top: -8px;float: left;" type="submit" ng-click="addToComments()">New Comment</button>
+                            <div class="list-group-item" ng-repeat="item in comments">
+                                <div class="row">
+                                    <input type="text" class="form-control col-sm-6" placeholder="{{item.comment}}" disabled/>
+                                    <p style="font-size: 15px;margin-top: 42px;">Comment By:{{item.commentedBy}} at {{item.commentedTime}}</p>
                                 </div>
                             </div>
                         </div>
@@ -147,6 +136,30 @@
 
                 </div>
 
+            </div>
+            <div class="modal fade" id="myAnswer" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Write Answer</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <input type="number" class="form-control" aria-rowcount="4" ng-model="Answer.answerText">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="answerQuestion()">Done</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </section>
