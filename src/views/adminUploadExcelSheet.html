@@ -1,0 +1,77 @@
+<div class="wrap">
+   <nav class="nav-bar navbar-inverse" role="navigation">
+      <div id ="top-menu" class="container-fluid active">
+          <a class="navbar-brand" href="#" style="color: aliceblue;">DAC Forum and Mentor Assessment</a>
+          <ul class="nav navbar-nav">        
+              <form id="qform" class="navbar-form pull-left" role="search">
+                 <!-- <input type="text" class="form-control" placeholder="Search" /> -->
+                 <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
+               </form>      
+          </ul>
+      </div>      
+  </nav>   
+
+  <aside id="side-menu" class="aside" role="navigation" style="z-index:0">   
+
+        <ul class="nav nav-list accordion">                    
+
+           <li class="nav-header">
+            <div class="link" ng-click="goHome();"><i class="	glyphicon glyphicon-home"></i>Home</div>
+          </li>   
+
+          <li class="nav-header">
+            <div class="link" ng-click="goToForum();"><i class="fa fa-lg fa-facebook"></i>Forum</i></div>
+
+          </li>
+          
+          <li class="nav-header">
+            <div class="link" ng-click="goToMentorDetails();"><i class="fa fa-lg fa-users"></i>Mentor</div>
+            
+          </li>
+          
+          <li class="nav-header">
+            <div class="link" id="Tid" ng-click="toggleMarks();"><i class="fa fa-cloud"></i> Marks <i class="fa fa-chevron-down" ></i></div>
+            <ul ng-hide="custom" class="dropdown-toggle">
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=1 ng-click="listItemClicked($event)">OOPs with CPP<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;"  id=2 ng-click="listItemClicked($event)">Algorithm And Datastructure<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=3 ng-click="listItemClicked($event)">Operating System Concepts<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=4 ng-click="listItemClicked($event)">J2SE<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=5 ng-click="listItemClicked($event)">J2EE<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=6 ng-click="listItemClicked($event)">Advanced Web Programming<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=7 ng-click="listItemClicked($event)">Database Technologies<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=8 ng-click="listItemClicked($event)">S/w Application Tools & Techniques<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+              <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=9 ng-click="listItemClicked($event)">Microsoft .NET<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+            </ul>
+          </li>  
+          
+            <li class="nav-header">
+            <div class="link" ng-click="toggleData1();"><i class="fa fa-lg fa-map-marker" ></i>Modify<i class="fa fa-chevron-down"></i></div>
+            <ul class="dropdown-toggle" ng-hide="custom1" >
+                           <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=11 ng-click="addModifylistItemClicked($event)">Add data<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                           <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=22 ng-click="addModifylistItemClicked($event)">Modify data<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+            </ul>
+          </li>
+          
+          
+          
+          
+          
+      </ul>
+  </aside>
+  
+  <!--Body content-->
+  <div class="content">
+    <div class="top-bar" style="    width: 100%;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>
+    <section class="content-inner">
+      <h2>Sample</h2>
+           
+    </section>
+  </div>  
+  
+</div>

@@ -1,0 +1,82 @@
+<div class="wrap">
+    <nav class="nav-bar navbar-inverse" role="navigation">
+        <div id="top-menu" class="container-fluid active">
+            <a class="navbar-brand" href="#">Brand</a>
+            <ul class="nav navbar-nav">
+                <form id="qform" class="navbar-form pull-left" role="search">
+                    <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
+                </form>
+
+            </ul>
+        </div>
+    </nav>
+    <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
+        <ul class="nav nav-list accordion">
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToStudentHomePage()"><i class="glyphicon glyphicon-home"></i>Home<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToStudentAgendaPage()"><i class="fa fa-lg fa-globe"></i>Agenda<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goTostudentFeedbackForm()"><i class="fa fa-lg fa-users"></i>Feedback<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToForum()"><i class="fa fa-cloud"></i>Forum<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToStudentMarksTablePage()"><i class="fa fa-lg fa-map-marker"></i>Marks<i class="fa fa-chevron-down"></i></div>
+            </li>
+        </ul>
+    </aside>
+
+    <!--Body content-->
+    <div class="content">
+        <!-- <div class="top-bar">
+            <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>
+        </div> -->
+        <section class="content-inner container" style="overflow:scroll;">
+
+            <div class="row" ng-init="agendaInit()">
+
+                <div class="jumbotron form-group list-group">
+
+                    <label>Previous:</label>
+
+                    <div class="list-group-item" ng-repeat="item in postList">
+                        <div class="row">
+                            <textarea class="form-control col-sm-6" placeholder="{{item.agendaText}}" disabled></textarea>
+                            <label style="margin-top: 1%; color:dodgerblue;">
+                            Scheduled Time: {{item.agendaDate}}
+                            </label>
+                            <br>
+                            <!-- <p>{{item.agendaText}}</p> -->
+                            <button class="btn btn-warning" style="margin-top: 1%;" type="submit">
+                                        Edit
+                            </button>
+
+                            <button class="btn btn-danger" style="margin-top: 1%;" type="submit">
+                                        Delete
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+</div>

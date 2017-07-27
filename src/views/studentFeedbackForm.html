@@ -1,0 +1,222 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+  <script src="jquery-3.2.1.min/jquery-3.2.1.min.js"></script>
+
+  <script src="bootstrap-3.3.7-dist/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="studnav.css">
+
+  <script src="studnav.js"></script>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <nav class="nav-bar navbar-inverse" role="navigation">
+      <div id="top-menu" class="container-fluid active">
+        <a class="navbar-brand" href="#">Brand</a>
+        <ul class="nav navbar-nav">
+          <form id="qform" class="navbar-form pull-left" role="search">
+            <input type="text" class="form-control" placeholder="Search" />
+          </form>
+          <li class="dropdown movable">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-4x fa-child"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#"><span class="fa fa-user"></span>My Profile</a></li>
+              <li><a href="#"><span class="fa fa-gear"></span>Settings</a></li>
+              <li class="divider"></li>
+              <li><span class="fa fa-power-off" ng-click="performLogOut()"></span>Logout</a>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
+      <ul class="nav nav-list accordion">
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToStudentHomePage()"><i class="glyphicon glyphicon-home"></i>Home<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToStudentAgendaPage()"><i class="fa fa-lg fa-globe"></i>Agenda<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goTostudentFeedbackForm()"><i class="fa fa-lg fa-users"></i>Feedback<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToForum()"><i class="fa fa-cloud"></i>Forum<i class="fa fa-chevron-down"></i></div>
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToStudentMarksTablePage()"><i class="fa fa-lg fa-map-marker"></i>Marks<i class="fa fa-chevron-down"></i></div>
+            </li>
+        </ul>
+    </aside>
+
+    <!--Body content-->
+    <div class="content">
+      <div class="top-bar">
+        <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>
+      </div>
+      <section class="content-inner">
+
+        <div class="jumbotron">
+          <div class="container">
+            <h2>MENTOR FEEDBACK FORM</h2>
+            <div class="card-content">
+              <h4 class="card-title">Stacked Form</h4>
+              <form method="#" action="#">
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Roll no</label>
+                  <input type="text" class="form" required ng-model="feedbackData.studentId">
+                  <span class="material-input"></span>
+                </div>
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Interaction with students</label>
+                  <br>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio1" value="4" ng-model="feedbackData.one">Excellent
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio1" value="3" ng-model="feedbackData.one">Good
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio1" value="2" ng-model="feedbackData.one">Average
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio1" value="1" ng-model="feedbackData.one">Poor
+                  </div>
+                  <span class="material-input"></span>
+                </div>
+
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Pace of Teaching</label>
+                  <br>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio2" value="4" ng-model="feedbackData.two">Excellent
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio2" value="3" ng-model="feedbackData.two">Good
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio2" value="2" ng-model="feedbackData.two">Average
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio2" value="1" ng-model="feedbackData.two">Poor
+                  </div>
+                  <span class="material-input"></span>
+                </div>
+
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Timely Response</label>
+                  <br>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio3" value="4" ng-model="feedbackData.three">Excellent
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio3" value="3" ng-model="feedbackData.three">Good
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio3" value="2" ng-model="feedbackData.three">Average
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio3" value="1" ng-model="feedbackData.three">Poor
+                  </div>
+                  <span class="material-input"></span>
+                </div>
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">No. of sessions</label>
+                  <br>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio4" value="4" ng-model="feedbackData.four">Excellent
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio4" value="3" ng-model="feedbackData.four">Good
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio4" value="2" ng-model="feedbackData.four">Average
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio4" value="1" ng-model="feedbackData.four">Poor
+                  </div>
+                  <span class="material-input"></span>
+                </div>
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Communication</label>
+                  <br>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio5" value="4" ng-model="feedbackData.five">Excellent
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio5" value="3" ng-model="feedbackData.five">Good
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio5" value="2" ng-model="feedbackData.five">Average
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio5" value="1" ng-model="feedbackData.five">Poor
+                  </div>
+                  <span class="material-input"></span>
+                </div>
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Overall Experience</label>
+                  <br>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio6" value="4" ng-model="feedbackData.six">Excellent
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio6" value="3" ng-model="feedbackData.six">Good
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio6" value="2" ng-model="feedbackData.six">Average
+                  </div>
+                  <div class="radio-inline">
+                    <input type="radio" name="optradio6" value="1" ng-model="feedbackData.six">Poor
+                  </div>
+                  <span class="material-input"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="comment">Your Reviews:</label>
+                  <br>
+                  <textarea class="form-control" rows="5" id="comment" ng-model="feedbackData.comment" required></textarea>
+                </div>
+
+
+
+
+
+                <button type="submit" class="btn btn-fill btn-rose" ng-click="submitFeedback()">Submit</button>
+              </form>
+            </div>
+          </div>
+
+
+        </div>
+
+      </section>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<div class="wrap">
+    <nav class="nav-bar navbar-inverse" role="navigation">
+        <div id="top-menu" class="container-fluid active">
+            <a class="navbar-brand" href="#" style="color: aliceblue;">DAC Forum and Mentor Assessment</a>
+            <ul class="nav navbar-nav">
+                <form id="qform" class="navbar-form pull-left" role="search">
+                    <!-- <input type="text" class="form-control" placeholder="Search" /> -->
+                    <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+    <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
+        <ul class="nav nav-list accordion">
+
+            <li class="nav-header">
+                <div class="link" ng-click="go();"><i class="	glyphicon glyphicon-home"></i>Home</div>
+            </li>
+
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToForum();"><i class="fa fa-lg fa-facebook"></i>Forum</i>
+                </div>
+
+            </li>
+
+            <li class="nav-header">
+                <div class="link" ng-click="goToMentorDetails();"><i class="fa fa-lg fa-users"></i>Mentor</div>
+
+            </li>
+
+            <li class="nav-header">
+                <div class="link" id="Tid" ng-click="toggleMarks();"><i class="fa fa-cloud"></i> Marks <i class="fa fa-chevron-down"></i></div>
+                <ul ng-hide="custom" class="dropdown-toggle">
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=1
+                            ng-click="listItemClicked($event)">OOPs with CPP<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=2
+                            ng-click="listItemClicked($event)">Algorithm And Datastructure<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=3
+                            ng-click="listItemClicked($event)">Operating System Concepts<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=4
+                            ng-click="listItemClicked($event)">J2SE<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=5
+                            ng-click="listItemClicked($event)">J2EE<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=6
+                            ng-click="listItemClicked($event)">Advanced Web Programming<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=7
+                            ng-click="listItemClicked($event)">Database Technologies<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=8
+                            ng-click="listItemClicked($event)">S/w Application Tools & Techniques<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=9
+                            ng-click="listItemClicked($event)">Microsoft .NET<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                </ul>
+            </li>
+
+
+            <li class="nav-header">
+                <div class="link" ng-click="toggleData1();"><i class="fa fa-lg fa-map-marker"></i>Modify<i class="fa fa-chevron-down"></i></div>
+                <ul class="dropdown-toggle" ng-hide="custom1">
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=11
+                            ng-click="addModifylistItemClicked($event)">Add data<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=22
+                            ng-click="addModifylistItemClicked($event)">Modify data<span class="glyphicon glyphicon-chevron-right"></span></button></li>
+                </ul>
+            </li>
+
+
+
+        </ul>
+    </aside>
+
+    <!--Body content-->
+    <div class="content">
+        <!--<div class="top-bar" style="color:cornflowerblue;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>-->
+        <section class="content-inner" ng-init="loadAllMentorsDetailsForAdminLogin()">
+
+            <div class="container" style="width:100%">
+
+                <h2>CDAC 2017 TEAM MENTORS</h2>
+                <p>Course co-ordinator: Dr. C P Johson </p>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Team no.</th>
+                            <th>Name</th>
+                            <th>EmailId</th>
+                            <th>ContactNo</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="item in mentorDetailsList">
+                        <tr>
+                            <td>{{item.teamId}}</td>
+                            <td>{{item.mentorName}}</td>n
+                            <td>{{item.email}}</td>
+                            <td>{{item.contactNo}}</td>
+                            <td>{{item.mentor_attendance}}</td>
+                            <td><button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Form</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="mentorId">Mentor ID:</label>
+                                    <input type="number" class="form-control" id="mentorId" ng-model="modalMentor.mentorId">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" id="name" ng-model="modalMentor.mentorName" ng-focus="fetchMentor(this)">
+                                </div>
+                                <div class="form-group">
+                                    <label for="yoe">Years of Experience:</label>
+                                    <input type="number" class="form-control" id="yoe" ng-model="modalMentor.yearOfExperience">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactNo">Contact No:</label>
+                                    <input type="text" class="form-control" id="contactNo" ng-model="modalMentor.contactNo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Company:</label>
+                                    <input type="text" class="form-control" id="company" ng-model="modalMentor.company">
+                                </div>
+                                <div class="form-group">
+                                    <label for="aoe">Area of Expertise:</label>
+                                    <input type="text" class="form-control" id="aoe" ng-model="modalMentor.areaOfExpertise">
+                                </div>
+                                <div class="form-group">
+                                    <label for="batch">Batch:</label>
+                                    <input type="text" class="form-control" id="batch" ng-model="modalMentor.batch">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="text" class="form-control" id="email" ng-model="modalMentor.email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="teamId">Team ID:</label>
+                                    <input type="number" class="form-control" id="teamId" ng-model="modalMentor.teamId">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="updateMentor()">Set Changes</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</div>
