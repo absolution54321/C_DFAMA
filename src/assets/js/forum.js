@@ -38,9 +38,10 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
     $scope.hide = true;
     $scope.show = true;
     
-    $scope.showAnswers = function ($event) {
+    $scope.showAnswers = function ($event,item) {
         var id = angular.element($event.currentTarget).parent().children().last().html();
-        $scope.hide = $scope.hide === false ? true : false;
+        // $scope.hide = $scope.hide === false ? true : false;
+        item.hide = !item.hide;
         $scope.Answers.length=0;
         //for fetching Answers of answered question
     $scope.inputData = {"quesId":id};
@@ -69,10 +70,10 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
 
     };
 
-    $scope.showComments = function ($event,obj) {
+    $scope.showComments = function ($event,item) {
         var aid = angular.element($event.currentTarget).parent().children().last().html();
-        $scope.show = $scope.show === false ? true : false;
-        // $(obj).parent().parent().children().last().toggle();
+        // $scope.show = $scope.show === false ? true : false;
+        item.show = !item.show;
         $scope.comments.length=0;
         //for fetching comments of answers
         $scope.inputAnsId = {"ansId":aid};
@@ -155,15 +156,18 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
         hpromise.then(function (response) {
             console.log(response);
             if (response.data.length > 0) {
-                for (var i = 0; i < response.data.length; i++) {
-                    $scope.answeredQuestions.push({
-                        "question": response.data[i].questionText,
-                        "tag": response.data[i].tag,
-                        "postedBy": response.data[i].studentId,
-                        "postedDate": response.data[i].postedDateQue,
-                        "qid": response.data[i].questionId
-                    });
-                }
+                $scope.answeredQuestions=response.data;
+                // for (var i = 0; i < response.data.length; i++) {
+                    // $scope.answeredQuestions.push({
+                    //     "question": response.data[i].questionText,
+                    //     "tag": response.data[i].tag,
+                    //     "postedBy": response.data[i].studentId,
+                    //     "postedDate": response.data[i].postedDateQue,
+                    //     "qid": response.data[i].questionId
+                    // });
+
+
+                // }
             }
         }).catch(function (err) {
             console.log(err);
