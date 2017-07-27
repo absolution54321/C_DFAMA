@@ -53,6 +53,7 @@
                         <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.question"></textarea>
 
                         <select style="float: left;margin-right: 17px;margin-top: 15px;">
+                                <option disabled selected>Select Tag</option>
                                 <option value="cpp" ng-model="currentQuestion.tag">C++</option>
                                 <option value="ds" ng-model="currentQuestion.tag">Data Structures</option>
                                 <option value="os" ng-model="currentQuestion.tag">Operating System</option>
@@ -89,7 +90,8 @@
                             <button class="btn btn-primary btn-block" style="width: 8%;margin-top: 16px;float: left;" type="submit" data-toggle="modal"
                                 data-target="#myAnswer" ng-click="answerQuestion()">Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 225px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 210px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+                            
                         </div>
                     </div>
                     <br>
@@ -102,29 +104,32 @@
                                 Question
                             </label>
                             <input class="form-control col-sm-6" placeholder="{{item.question}}" disabled/>
-                            <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="showAnswers()"></button>
+                            <button class="btn btn-primary btn-block" style="width: 13%;margin-top: 16px;float: left;" type="submit" ng-click="showAnswers($event,this)">Show Answers
+                            </button>
                             <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" type="submit"
-                                ng-click="addToAnswers()">New Answer</button>
+                                ng-click="addToAnswers()">Add Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;"placeholder="{{item.tag}}" disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 245px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 372px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+                            <p ng-hide="hideid">{{item.qid}}</p>
                         </div>
                         <br>
-                        <label style="margin-top: 1%; color:dodgerblue;">
+                        <label ng-hide="hide" style="margin-top: 1%; color:dodgerblue;">
                                 Answers
                         </label>
-                        <div class="list-group-item" ng-repeat="item in Answers">
+                        <div class="list-group-item" ng-hide="hide" ng-repeat="item in Answers">
                             <div class="row">
                                 
                                 <input class="form-control col-sm-6" placeholder="{{item.answer}}" disabled/>
-                                <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="addToAnswers()">Comment</button>
-                                <p style="font-size: 15px;margin-top: 55px;margin-left: 150px;">Answered By:{{item.answeredBy}} at {{item.answeredTime}}</p>
-
+                                <button class="btn btn-primary btn-block" style="width: 15%;margin-top: 16px;float: left;" type="submit" ng-click="showComments($event)">Show Comments</button>
+                                <button class="btn btn-primary btn-block" style="width: 13%;margin-top: 16px;float: left;margin-left: 19px;" type="submit" ng-click="addToComments()">Add Comment</button>
+                                <p style="font-size: 15px;margin-top: 55px;margin-left: 288px;">Answered By:{{item.answeredBy}} at {{item.answeredTime}}</p>
+                                <p ng-hide="hideid">{{item.ansId}}</p>
                             </div>
                             <br>
-                            <label style="margin-top: 1%; color:dodgerblue;">
+                            <label ng-hide="show" style="margin-top: 1%; color:dodgerblue;">
                                 Comments
                                 </label>
-                            <div class="list-group-item" ng-repeat="item in comments">
+                            <div class="list-group-item" ng-hide="show"  ng-repeat="item in comments">
                                 <div class="row">
                                     <input type="text" class="form-control col-sm-6" placeholder="{{item.comment}}" disabled/>
                                     <p style="font-size: 15px;margin-top: 42px;">Comment By:{{item.commentedBy}} at {{item.commentedTime}}</p>
