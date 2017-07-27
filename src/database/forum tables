@@ -1,0 +1,39 @@
+select Questions.questionId as QID,Answers.questionId as QAID, Answers.answerText as Ans from Answers,Questions;
+create table Questions
+(questionId int primary key auto_increment,questionText varchar(1000),tag varchar(20),
+studentId varchar(20),answerStatus boolean not null default 0,
+postedDateQue timestamp DEFAULT CURRENT_TIMESTAMP,
+foreign key (studentId) references Student(studentId)
+);
+insert into Questions(questionText,tag,studentId)values("First question","dbt","101");
+insert into Questions(questionText,tag,studentId)values("Fourth question","ds","101");
+update Questions set answerStatus=1;
+
+insert into Questions(questionText,tag,studentId)values("Third question","dbt","101");
+insert into Questions(questionText,tag,studentId)values("Fourth question","ds","101");
+ 
+create table Answers
+(answerId int primary key auto_increment,questionId int,
+answerText varchar(1500),mentorId int,
+postedDateAns timestamp DEFAULT CURRENT_TIMESTAMP,
+foreign key (mentorId) references Mentor(mentorId),
+foreign key (questionId) references Questions(questionId));
+insert into Answers(questionId,answerText,mentorId)values(1,"First Questions answer",201);
+insert into Answers(questionId,answerText,mentorId)values(1,"First Questions second answer",201);
+insert into Answers(questionId,answerText,mentorId)values(2,"second Questions answer",201);
+insert into Answers(questionId,answerText,mentorId)values(2,"second Questions second answer",201);
+
+ 
+create table Comments
+(
+answerId int,commentText varchar(1000),
+studentId varchar(20),mentorId int,
+postedDateCmt timestamp DEFAULT CURRENT_TIMESTAMP,
+foreign key (answerId) references Answers(answerId),
+foreign key (mentorId) references Mentor(mentorId),
+foreign key (studentId) references Student(studentId));
+insert into Comments(answerId,commentText,mentorId)values(1,"First answer comment",201);
+insert into Comments(answerId,commentText,mentorId)values(1,"First answer second comment",201);
+insert into Comments(answerId,commentText,studentId)values(2,"second answer comment",101);
+insert into Comments(answerId,commentText,studentId)values(2,"First answer third comment",101);
+
