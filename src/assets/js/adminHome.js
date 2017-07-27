@@ -190,21 +190,21 @@ $scope.toggleData1 = function(){
             console.log(err);
         });
 
-        $scope.getTotalAnswers(function(){
-        var url = "http://localhost:3010/mentor/getTotalAnsCount/";
+        // $scope.getTotalAnswers(function(){
+        // var url = "http://localhost:3010/mentor/getTotalAnsCount/";
 
-        var hpromise = $http.get(url);
+        // var hpromise = $http.get(url);
    
-        hpromise.then(function (response) {
-            console.log(response);
+        // hpromise.then(function (response) {
+        //     console.log(response);
 
             
-        if (response.data.length > 0) {
-            $scope.ansCountObj = response.data;
-        }}).catch(function (err) {
-            console.log(err);
-        })
-        });
+        // if (response.data.length > 0) {
+        //     $scope.ansCountObj = response.data;
+        // }}).catch(function (err) {
+        //     console.log(err);
+        // })
+        // });
         $scope.calculateMentorPerformance();
         $scope.calculateClassPerformance();
 
