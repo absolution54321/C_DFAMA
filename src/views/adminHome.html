@@ -61,23 +61,20 @@
   </aside>
   
   <!--Body content-->
-  <div class="content">
-    <div class="top-bar" style="    width: 100%;">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div>
+  <div class="content" ng-init="calculateTeamPerformance()">
+   
     <section class="content-inner">
-      <h2>Class Performance</h2>
-      <zingchart id="chart1" zc-values="myData" zc-type="bar" zc-width="100%" style="display:block"></zingchart>
+  <h2>Team Performance</h2>
 
-      <h2>Mentor Performance</h2>
-      <zingchart id="chart2" zc-values="myData" zc-type="radar" zc-width="100%" style="display:block"></zingchart>
+      <zingchart id="chart1" zc-json="myJson1" zc-width="100%"  style="display:block"></zingchart>
+
+<!--<zingchart id="chart-1" zc-values="myValues" zc-json="myObj"></zingchart>-->
  
-      <h2>Team Performance</h2>
-      <zingchart id="chart3" zc-values="myData" zc-type="bar" zc-width="100%" style="display:block"></zingchart>
+ <!--<zingchart id="chart6" zc-values="teamPerformanceList" zc-json="jsonObjForTeam" zc-type="bar" zc-width="100%" style="display:block"></zingchart>-->
+      <!--<zingchart id="chart9" zc-json="myJson2" zc-width="100%" style="display:block"></zingchart>-->
+
+<h2>Mentor Performance</h2>
+    <div zingchart id="chart11" zc-json="myJsonPP" zc-width="100%" zc-height="568px"></div>
 
     </section>
   </div>  
