@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.7",
     "angular-route": "^1.6.5",
     "angular-cookies": "^1.6.5",
+    "zingchart": "^2.6.1",
     "ZingChart-AngularJS": "zingchart-angularjs#^1.2.0"
   }
 }
