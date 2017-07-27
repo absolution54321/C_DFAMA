@@ -79,19 +79,19 @@
   <div class="row form-group">
   <div class="col-sm-4">
     <label for="ex3">Old Password</label>
-    <input class="form-control" id="ex2" type="text" ng-model="data.oldPwd">
+    <input class="form-control" id="ex2" type="password" ng-model="data.oldPwd">
   </div>
   </div>
   <div class="row form-group">
   <div class="col-sm-4">
     <label for="ex3">New Password</label>
-    <input class="form-control" id="ex3" type="text" ng-model="data.newPwd">
+    <input class="form-control" id="ex3" type="password" ng-model="data.newPwd" required minlength="4" maxlength="8">
   </div>
   </div>
 <div class="row form-group">
   <div class="col-sm-4">
     <label for="ex3">Confirm Password</label>
-    <input class="form-control" id="ex3" type="text" ng-model="data.conPwd">
+    <input class="form-control" id="ex3" type="password" ng-model="data.conPwd" required minlength="4" maxlength="8">
   </div>
 </div>
 

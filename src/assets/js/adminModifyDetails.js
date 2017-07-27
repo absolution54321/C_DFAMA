@@ -30,18 +30,32 @@ $scope.changePassword= function(){
         "conPwd":$scope.data.conPwd
 
     };
-    
-        var url = "http://localhost:3010/admin/changePwd";
+
+        if($scope.jsonObject.newPwd == $scope.jsonObject.conPwd){
+
+             var url = "http://localhost:3010/admin/changePwd";
         var hpromise = $http.post(url, $scope.jsonObject);
 
         hpromise.then(function (response){
-
-            console.log(response);
+            if(response.data.affectedRows > 0){
+                console.log(response);
+            alert("password change successfully....!");
+            }
+            else{
+                alert("fail to change password");
+            }
+            
 
         }).catch(function (err) {
             console.log(err);
         });
 
+        }
+        else{
+            alert("password missmatch.....Please try again!");
+        }
+    
+       
 };
 
 
