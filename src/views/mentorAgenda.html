@@ -58,9 +58,9 @@
                     <label>Agenda:</label>
                     <div class="row">
 
-                        <textarea class="form-control col-sm-3" placeholder="agenda for today.." ng-model="posts.agendaText"></textarea>
+                        <textarea class="form-control col-sm-3" placeholder="agenda for today.." ng-model="posts.agendaText" required></textarea>
                         <label style="margin-top: 1%;">Schedule Date:</label>
-                        <input type="date" class="form-control" ng-model="posts.agendaDate">
+                        <input type="date" class="form-control" min='2017-07-28' ng-model="posts.agendaDate">
                         <button class="btn btn-primary btn-block" style="margin-top: 1%;" type="submit" ng-click="setAgenda()">
                                 Set
                     </button>
@@ -87,9 +87,6 @@
                                         Edit
                             </button>
 
-                            <button class="btn btn-danger" style="margin-top: 1%;" type="submit">
-                                        Delete
-                            </button>
                         </div>
                     </div>
 
