@@ -5,6 +5,8 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
     $scope.postList = [];
     $scope.posts = {};
 
+    $scope.editPost = {};
+
     $scope.fetch = function () {
         $window.location.href = "https://www.google.co.in/";
     };
@@ -26,7 +28,7 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
         $location.path("//mentorForum");
     };
 
-    
+
 
     $scope.setAgenda = function () {
         //$scope.posts.agendaDate = new Date($scope.posts.agendaDate);
@@ -74,6 +76,32 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
         }).catch(function (err) {
             console.log(err);
         });
+    };
+
+    $scope.setEvent = function($event){
+
+        $scope.editPost.currentAgenda = angular.element($event.currentTarget).parent().children().first().val();
+
+    };
+
+    $scope.updateAgenda = function(){
+
+        var url = "http://localhost:3010/mentor/updateAgenda"
+
+        var hpromise = $http.post(url, $scope.editPost);
+
+        hpromise.then(function(response){
+
+            if(response.data.affectedRows > 0){
+                console.log(response.data);
+            }
+
+            $location.path("/mentorAgenda");
+
+        }).catch(function(err){
+            console.log(err);
+        });
+
     };
 
     $scope.performLogOut = function () {
