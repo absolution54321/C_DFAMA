@@ -89,11 +89,20 @@ app.config(function ($routeProvider) {
     });
 
     //Forum route
-    $routeProvider.when("/forum", {
-        "templateUrl": "./src/views/forum.html",
-        "controller": "forum"
+    $routeProvider.when("/studentForum", {
+        "templateUrl": "./src/views/studentForum.html",
+        "controller": "studentForum"
     });
 
+    $routeProvider.when("/mentorForum", {
+        "templateUrl": "./src/views/mentorForum.html",
+        "controller": "mentorForum"
+    });
+
+    $routeProvider.when("/adminForum", {
+        "templateUrl": "./src/views/adminForum.html",
+        "controller": "adminForum"
+    });
 
 });
 
@@ -108,11 +117,11 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
         console.log($window.location.href == 'http://localhost:3000/#!/mentorHome');
 
         if ($window.location.href == 'http://localhost:3000/#!/adminHome'
-                || $window.location.href == 'http://localhost:3000/#!/mentorDetails'
-                || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
-                || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
-                || $window.location.href == 'http://localhost:3000/#!/adminModifyDetails'
-                || $window.location.href == 'http://localhost:3000/#!/adminUploadExcelSheet') {
+            || $window.location.href == 'http://localhost:3000/#!/mentorDetails'
+            || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
+            || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
+            || $window.location.href == 'http://localhost:3000/#!/adminModifyDetails'
+            || $window.location.href == 'http://localhost:3000/#!/adminUploadExcelSheet') {
             if (adminId == undefined) {
                 if (type == 2) {
                     $location.path("/studentHome");
@@ -128,7 +137,8 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
         if ($window.location.href == 'http://localhost:3000/#!/studentHome'
             || $window.location.href == 'http://localhost:3000/#!/studentMarksTable'
             || $window.location.href == 'http://localhost:3000/#!/studentAgenda'
-            || $window.location.href == 'http://localhost:3000/#!/studentFeedbackForm') {
+            || $window.location.href == 'http://localhost:3000/#!/studentFeedbackForm'
+            || $window.location.href == 'http://localhost:3000/#!/studentForum') {
             if (studentId == undefined) {
                 if (type == 1) {
                     $location.path("/adminHome");
@@ -143,7 +153,8 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
 
         if ($window.location.href == 'http://localhost:3000/#!/mentorHome'
             || $window.location.href == 'http://localhost:3000/#!/mentorAgenda'
-            || $window.location.href == 'http://localhost:3000/#!/teamPerformance') {
+            || $window.location.href == 'http://localhost:3000/#!/teamPerformance'
+            || $window.location.href == 'http://localhost:3000/#!/mentorForum') {
             if (mentorId == undefined) {
                 if (type == 1) {
                     $location.path("/adminHome");
@@ -160,20 +171,16 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
             $location.path("/");
         }
 
-        if($window.location.href == 'http://localhost:3000/#!/')
-            {
-                if(adminId != undefined)
-                    {
-                        $location.path("/adminHome");
-                    }
-                if(studentId != undefined)
-                    {
-                        $location.path("/studentHome");
-                    }
-                if(mentorId != undefined)
-                    {
-                        $location.path("/mentorHome");
-                    }
+        if ($window.location.href == 'http://localhost:3000/#!/') {
+            if (adminId != undefined) {
+                $location.path("/adminHome");
             }
+            if (studentId != undefined) {
+                $location.path("/studentHome");
+            }
+            if (mentorId != undefined) {
+                $location.path("/mentorHome");
+            }
+        }
     });
 });

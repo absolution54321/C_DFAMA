@@ -18,11 +18,9 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
         $scope.custom1 = $scope.custom1 === false ? true : false;
     }
 
-
-    $scope.goToForum = function () {
-        $location.path("/mentorDetails");
+    $scope.goToForum=function(){
+        $location.path("/adminForum");
     };
-
     $scope.goToMentorDetails = function () {
         $location.path("/mentorDetails");
     };
@@ -39,6 +37,13 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
             console.log(err);
         });
 
+    };
+
+    $scope.setEvent = function($event){
+
+        $scope.modalMentor.mentorId = angular.element($event.currentTarget).parent().prev().html();
+
+        console.log($scope.modalMentor.mentorId);
     };
 
     $scope.listItemClicked = function (event) {

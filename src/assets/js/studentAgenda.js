@@ -21,7 +21,7 @@ app.controller("studentAgenda", function ($scope, $window, $compile, $filter, $h
     };
 
     $scope.goToForum = function () {
-        $location.path("/forum");
+        $location.path("/studentForum");
     };
 
     $scope.agendaInit = function () {

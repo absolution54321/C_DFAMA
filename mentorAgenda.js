@@ -21,13 +21,6 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
         $window.location.href = "http://localhost:3000/#!/teamPerformance";
     };
 
-    $scope.goToForum = function () {
-
-        $location.path("//mentorForum");
-    };
-
-    
-
     $scope.setAgenda = function () {
         //$scope.posts.agendaDate = new Date($scope.posts.agendaDate);
 
