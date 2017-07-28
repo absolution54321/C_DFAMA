@@ -77,19 +77,19 @@
 
                     <div class="list-group-item" ng-repeat="item in postList">
                         <div class="row">
-                            <textarea class="form-control col-sm-6" placeholder="{{item.agendaText}}" disabled></textarea>
+                            <textarea class="form-control col-sm-6" placeholder="{{item.agendaText}}" ng-model="item.agendaText" disabled></textarea>
                             <label style="margin-top: 1%; color:dodgerblue;">
                             Scheduled Time: {{item.agendaDate}}
-                        </label>
+                            </label>
                             <br>
                             <!-- <p>{{item.agendaText}}</p> -->
-                            <button class="btn btn-warning" style="margin-top: 1%;" type="submit">
+                            <button class="btn btn-warning" style="margin-top: 1%;" type="submit" data-toggle="modal" data-target="#updateAgenda" ng-click="setEvent($event)">
                                         Edit
-                        </button>
+                            </button>
 
                             <button class="btn btn-danger" style="margin-top: 1%;" type="submit">
                                         Delete
-                        </button>
+                            </button>
                         </div>
                     </div>
 
@@ -97,6 +97,35 @@
 
             </div>
 
+            <div class="modal fade" id="updateAgenda" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Edit Agenda</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label>Current Agenda:</label>
+                                    <input type="text" class="form-control" aria-rowcount="4" ng-model="editPost.currentAgenda" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>New Agenda:</label>
+                                    <input type="text" class="form-control" aria-rowcount="4" ng-model="editPost.newAgenda">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" ng-click="updateAgenda()">Done</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
 
 

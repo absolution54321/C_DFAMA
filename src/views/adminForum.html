@@ -64,7 +64,7 @@
                             <button class="btn btn-primary btn-block" ng-hide="true" style="width: 8%;margin-top: 16px;float: left;" type="submit" data-toggle="modal"
                                 data-target="#firstAnswer" ng-click="saveEvent($event)">Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 210px;">Posted By:{{item.studentId}} at {{item.postedDate}}</p>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 210px;">Posted By:{{item.studentId}} at {{item.postedDate | date}}</p>
                             <p ng-hide="true">{{item.questionId}}</p>    
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                             <button class="btn btn-primary btn-block" ng-hide="true" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" data-toggle="modal"
                                 data-target="#myAnswer" ng-click="saveEvent($event)" type="submit">Add Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 372px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 372px;">Posted By:{{item.postedBy}} at {{item.postedDate | date}}</p>
                             <p ng-hide="hideid">{{item.questionId}}</p>
                         </div>
                         <br>
