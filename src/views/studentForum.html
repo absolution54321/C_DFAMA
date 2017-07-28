@@ -24,7 +24,6 @@
                                 Write your Question here...
                     </label>
                     <form class="row">
-<<<<<<< HEAD
                         <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.content"></textarea>
 
                         <select style="float: left;margin-right: 17px;margin-top: 15px;" required data-error="Select a Tag!" ng-model="currentQuestion.tag" tabindex="1">
@@ -42,26 +41,6 @@
                                 <option value="communication" >Communications</option>
                                 <option value="apti" >Aptitude</option>
                                 <option value="other" >Other</option>
-=======
-                        <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.question"></textarea>
-
-                        <select style="float: left;margin-right: 17px;margin-top: 15px;">
-                                <option disabled selected>Select Tag</option>
-                                <option value="cpp" ng-model="currentQuestion.tag" ng-value="CPP">C++</option>
-                                <option value="ds" ng-model="currentQuestion.tag" ng-value="DS">Data Structures</option>
-                                <option value="os" ng-model="currentQuestion.tag" ng-value="OS">Operating System</option>
-                                <option value="java" ng-model="currentQuestion.tag" ng-value="Java">Java Technologies</option>
-                                <option value="awp" ng-model="currentQuestion.tag" ng-value="Web-Tech">Web Programming</option>
-                                <option value="net" ng-model="currentQuestion.tag" ng-value="Dot-Net">Dotnet</option>
-                                <option value="se" ng-model="currentQuestion.tag" ng-value="SE">Software Engg.</option>
-                                <option value="se" ng-model="currentQuestion.tag" ng-value="DBT">Database Technologies</option>
-                                <option value="ccee" ng-model="currentQuestion.tag" ng-value="CCEE">CCEE</option>
-                                <option value="placement" ng-model="currentQuestion.tag" ng-value="Placements">Placement</option>
-                                <option value="communication" ng-model="currentQuestion.tag" ng-value="Commn">Communications</option>
-                                <option value="apti" ng-model="currentQuestion.tag" ng-value="Aptitude">Aptitude</option>
-                                <option role="separator" class="divider">---------------------------</option>
-                                <option value="other" ng-model="currentQuestion.tag" ng-value="Other">Other</option>
->>>>>>> 4b511de77921206545a8a5a19315ec60bbeddd15
                             </select>
 
                         <button class="btn btn-primary btn-block" style="width: 6%;margin-top: 16px;" type="submit" ng-click="postQuestion()">Post</button>
@@ -84,11 +63,7 @@
                             <button class="btn btn-primary btn-block" ng-hide="true" style="width: 8%;margin-top: 16px;float: left;" type="submit" data-toggle="modal"
                                 data-target="#firstAnswer" ng-click="saveEvent($event)">Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-<<<<<<< HEAD
                             <p style="font-size: 15px;margin-top: 55px;margin-left: 30px;">Posted By:{{item.studentId}} at {{item.postedDate | date}}</p>
-=======
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 210px;">Posted By:{{item.studentId}} at {{item.postedDate | date}}</p>
->>>>>>> 4b511de77921206545a8a5a19315ec60bbeddd15
                             <p ng-hide="true">{{item.questionId}}</p>    
                         </div>
                     </div>
@@ -105,11 +80,7 @@
                             <button class="btn btn-primary btn-block" ng-hide="true" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" data-toggle="modal"
                                 data-target="#myAnswer" ng-click="saveEvent($event)" type="submit">Add Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-<<<<<<< HEAD
                             <p style="font-size: 15px;margin-top: 55px;margin-left: 120px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
-=======
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 372px;">Posted By:{{item.postedBy}} at {{item.postedDate | date}}</p>
->>>>>>> 4b511de77921206545a8a5a19315ec60bbeddd15
                             <p ng-hide="hideid">{{item.questionId}}</p>
                         </div>
                         <br>
@@ -118,13 +89,8 @@
                         </label>
                         <div class="list-group-item" ng-repeat="item1 in answeredQuestionsAnswers" ng-if="item.questionId==item1.questionId">
                                 <input class="form-control col-sm-6" placeholder="{{item1.content}}" disabled/>
-<<<<<<< HEAD
                             <p style="font-size: 15px;margin-top: 55px;">Posted By:{{item.mentorId}} at {{item.postedDate | date}}</p>
     
-=======
-                            </div>
-                            <br>
->>>>>>> 4b511de77921206545a8a5a19315ec60bbeddd15
                         </div>
 
                     </div>
