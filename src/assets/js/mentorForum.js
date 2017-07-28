@@ -41,11 +41,12 @@ app.controller("mentorForum", function ($scope, $window, $compile, $filter, $htt
     };
 
     $scope.answerQuestion = function () {
-
+        if($scope.Answers.answerText){
         $scope.jsonObj = {
             "qid": $scope.Answers.id,
             "answer": $scope.Answers.answerText,
-            "mentorId": $cookies.get('mentorId')
+            "mentorId": $cookies.get('mentorId'),
+            "postedDate":new Date()
         }
 
         console.log($scope.Answers.answerText);
@@ -61,7 +62,11 @@ app.controller("mentorForum", function ($scope, $window, $compile, $filter, $htt
         }).catch(function (err) {
             console.log(err);
         });
-
+        $scope.answeredQuestionsAnswers.push($scope.Answers);
+        }
+    else{
+        alert("Write something before posting");
+    }
 
     };
 
