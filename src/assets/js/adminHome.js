@@ -10,6 +10,9 @@ $scope.ansCountObj = {};
   $scope.mentorPerFormanceList = [];
   $scope.ListOfTeams=[];
 
+  $scope.lstCls1=[];
+  $scope.lstCls2=[];
+
 $scope.myJsonPP = {
         globals: {
             shadow: false,
@@ -19,9 +22,8 @@ $scope.myJsonPP = {
         type: "pie",
         backgroundColor: "#fff",
         title: {
-             textAlign: 'center',
-             text: "Mentor Performance"
-        },
+    text: "Class Performance!"
+  },
         legend: {
             layout: "x5",
             position: "50%",
@@ -42,7 +44,13 @@ $scope.myJsonPP = {
                 text: "%npv %",
                 fontSize: "15px",
                 textAlpha: 1,
-            }
+            },
+            animation: {
+      delay: "100",
+      effect: "4",
+      method: "5",
+      sequence: "1"
+    }
         },
         series: [{
             text: "Mentor1",
@@ -165,6 +173,51 @@ $scope.toggleData1 = function(){
       }]
     };
 
+
+//CLASS PERFORMANCE
+
+$scope.demoChart = {
+  type: "bar",
+  title: {
+    text: "Class Performance!"
+  },
+  legend: {
+    header: {
+      text: "Legend Header"
+    },
+    draggable: "true",
+    dragHandler: "icon"
+  },
+  plot: {
+    valueBox: {
+      text: "%node-value"
+    }
+  },
+  scaleX: {
+        values: ["CPP","ALDS","OSC","J2SE","J2EE","SE","AWP","DBT","DOTNET"]
+    },
+  series: [
+    {
+      text: "Failure Rate",
+     values: [],
+     backgroundColor: "#FA6E6E #FA9494",
+
+    },
+    {
+      text: "Success Rate",
+      values: [],
+     backgroundColor: "#FA6E6E #FA9494",
+    }
+  ]
+};
+
+
+
+
+
+
+
+
     
     $scope.calculateTeamPerformance = function(){
         var url = "http://localhost:3010/mentor/calcTeamPerformance/";
@@ -183,28 +236,28 @@ $scope.toggleData1 = function(){
             }
              $scope.myJson1.series[0].values = $scope.myJson1.series[0].values.concat($scope.teamPerformanceList);
 
-         }
+              }
 
          
         }).catch(function (err) {
             console.log(err);
         });
 
-        $scope.getTotalAnswers(function(){
-        var url = "http://localhost:3010/mentor/getTotalAnsCount/";
+        // $scope.getTotalAnswers(function(){
+        // var url = "http://localhost:3010/mentor/getTotalAnsCount/";
 
-        var hpromise = $http.get(url);
+        // var hpromise = $http.get(url);
    
-        hpromise.then(function (response) {
-            console.log(response);
+        // hpromise.then(function (response) {
+        //     console.log(response);
 
             
-        if (response.data.length > 0) {
-            $scope.ansCountObj = response.data;
-        }}).catch(function (err) {
-            console.log(err);
-        })
-        });
+        // if (response.data.length > 0) {
+        //     $scope.ansCountObj = response.data;
+        // }}).catch(function (err) {
+        //     console.log(err);
+        // })
+        // });
         $scope.calculateMentorPerformance();
         $scope.calculateClassPerformance();
 
@@ -246,15 +299,33 @@ $scope.toggleData1 = function(){
    
         hpromise.then(function (response) {
             console.log(response);
-
-            
+      
         if (response.data.length > 0) {
-                for (var i = 0; i < response.data.length; i++) {
-                   var add = response.data[i].AJLS+response.data[i].AJMS+ response.data[i].ALS + response.data[i].AMS+response.data[i].AWLS+ response.data[i].AWMS+ response.data[i].CJLS+ response.data[i].CJMS+ response.data[i].CLS+ response.data[i].CMS+ response.data[i].DBLS+ response.data[i].DBMS+ response.data[i].DNLS+ response.data[i].DNMS+ response.data[i].OLS+ response.data[i].OMS+ response.data[i].SLS+ response.data[i].SMS;
-                   $scope.teamPerformanceList.push(add);
-                   $scope.ListOfTeams.push(response.data[i].teamId);         
-            }
-             $scope.myJson1.series[0].values = $scope.myJson1.series[0].values.concat($scope.teamPerformanceList);
+
+$scope.lstCls1.push(response.data[0].M1);
+  $scope.lstCls1.push(response.data[0].M2);
+$scope.lstCls1.push(response.data[0].M3);
+  $scope.lstCls1.push(response.data[0].M4);
+$scope.lstCls1.push(response.data[0].M5);
+  $scope.lstCls1.push(response.data[0].M6);
+$scope.lstCls1.push(response.data[0].M7);
+  $scope.lstCls1.push(response.data[0].M8);
+$scope.lstCls1.push(response.data[0].M9);
+  
+  
+$scope.lstCls2.push(response.data[1].M1);
+  $scope.lstCls2.push(response.data[1].M2);
+$scope.lstCls2.push(response.data[1].M3);
+  $scope.lstCls2.push(response.data[1].M4);
+$scope.lstCls2.push(response.data[1].M5);
+  $scope.lstCls2.push(response.data[1].M6);
+$scope.lstCls2.push(response.data[1].M7);
+  $scope.lstCls2.push(response.data[1].M8);
+$scope.lstCls2.push(response.data[1].M9);
+  
+
+             $scope.demoChart.series[0].values = $scope.demoChart.series[0].values.concat($scope.lstCls1);
+             $scope.demoChart.series[1].values = $scope.demoChart.series[1].values.concat($scope.lstCls2);
 
          }
 

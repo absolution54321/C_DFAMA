@@ -27,6 +27,7 @@
                         <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.question"></textarea>
 
                         <select style="float: left;margin-right: 17px;margin-top: 15px;">
+<<<<<<< HEAD:src/views/studentForum.html
                                 <option disabled selected>Select Tag</option>
                                 <option value="cpp" ng-model="currentQuestion.tag" ng-value="CPP">C++</option>
                                 <option value="ds" ng-model="currentQuestion.tag" ng-value="DS">Data Structures</option>
@@ -42,6 +43,22 @@
                                 <option value="apti" ng-model="currentQuestion.tag" ng-value="Aptitude">Aptitude</option>
                                 <option role="separator" class="divider">---------------------------</option>
                                 <option value="other" ng-model="currentQuestion.tag" ng-value="Other">Other</option>
+=======
+                                <option value="cpp" ng-model="currentQuestion.tag">C++</option>
+                                <option value="ds" ng-model="currentQuestion.tag">Data Structures</option>
+                                <option value="os" ng-model="currentQuestion.tag">Operating System</option>
+                                <option value="java" ng-model="currentQuestion.tag">Java Technologies</option>
+                                <option value="awp" ng-model="currentQuestion.tag">Web Programming</option>
+                                <option value="net" ng-model="currentQuestion.tag">Dotnet</option>
+                                <option value="se" ng-model="currentQuestion.tag">Software Engg.</option>
+                                <option value="se" ng-model="currentQuestion.tag">Database Technologies</option>
+                                <option value="ccee" ng-model="currentQuestion.tag">CCEE</option>
+                                <option value="placement" ng-model="currentQuestion.tag">Placement</option>
+                                <option value="communication" ng-model="currentQuestion.tag">Communications</option>
+                                <option value="apti" ng-model="currentQuestion.tag">Aptitude</option>
+                                <option role="separator" class="divider"></option>
+                                <option value="other" ng-model="currentQuestion.tag">Other</option>
+>>>>>>> 16604710a3685c7baa2f5a13ca3654172099717b:src/views/forum.html
                             </select>
 
                         <button class="btn btn-primary btn-block" style="width: 6%;margin-top: 16px;" type="submit" ng-click="postQuestion()">Post</button>
@@ -64,8 +81,12 @@
                             <button class="btn btn-primary btn-block" ng-hide="true" style="width: 8%;margin-top: 16px;float: left;" type="submit" data-toggle="modal"
                                 data-target="#firstAnswer" ng-click="saveEvent($event)">Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
+<<<<<<< HEAD:src/views/studentForum.html
                             <p style="font-size: 15px;margin-top: 55px;margin-left: 210px;">Posted By:{{item.studentId}} at {{item.postedDate}}</p>
                             <p ng-hide="true">{{item.questionId}}</p>    
+=======
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 225px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+>>>>>>> 16604710a3685c7baa2f5a13ca3654172099717b:src/views/forum.html
                         </div>
                     </div>
                     <br>
@@ -77,23 +98,53 @@
                             <label style="margin-top: 1%; color:dodgerblue;">
                                 Question
                             </label>
+<<<<<<< HEAD:src/views/studentForum.html
                             <input class="form-control col-sm-6" placeholder="{{item.content}}" disabled/>
                             <button class="btn btn-primary btn-block" ng-hide="true" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" data-toggle="modal"
                                 data-target="#myAnswer" ng-click="saveEvent($event)" type="submit">Add Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
                             <p style="font-size: 15px;margin-top: 55px;margin-left: 372px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
                             <p ng-hide="hideid">{{item.questionId}}</p>
+=======
+                            <input class="form-control col-sm-6" placeholder="{{item.question}}" disabled/>
+                            <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="showAnswers()"></button>
+                            <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" type="submit"
+                                ng-click="addToAnswers()">New Answer</button>
+                            <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;"placeholder="{{item.tag}}" disabled></input>
+                            <p style="font-size: 15px;margin-top: 55px;margin-left: 245px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
+>>>>>>> 16604710a3685c7baa2f5a13ca3654172099717b:src/views/forum.html
                         </div>
                         <br>
                         <label style="margin-top: 1%; color:dodgerblue;">
                                 Answers
                         </label>
+<<<<<<< HEAD:src/views/studentForum.html
                         <div class="list-group-item" ng-repeat="item1 in answeredQuestionsAnswers" ng-if="item.questionId==item1.questionId">
                             <div class="row">
 
                                 <input class="form-control col-sm-6" placeholder="{{item1.content}}" disabled/>
                             </div>
                             <br>
+=======
+                        <div class="list-group-item" ng-repeat="item in Answers">
+                            <div class="row">
+                                
+                                <input class="form-control col-sm-6" placeholder="{{item.answer}}" disabled/>
+                                <button class="btn btn-primary btn-block" style="width: 11%;margin-top: 16px;float: left;" type="submit" ng-click="addToAnswers()">Comment</button>
+                                <p style="font-size: 15px;margin-top: 55px;margin-left: 150px;">Answered By:{{item.answeredBy}} at {{item.answeredTime}}</p>
+
+                            </div>
+                            <br>
+                            <label style="margin-top: 1%; color:dodgerblue;">
+                                Comments
+                                </label>
+                            <div class="list-group-item" ng-repeat="item in comments">
+                                <div class="row">
+                                    <input type="text" class="form-control col-sm-6" placeholder="{{item.comment}}" disabled/>
+                                    <p style="font-size: 15px;margin-top: 42px;">Comment By:{{item.commentedBy}} at {{item.commentedTime}}</p>
+                                </div>
+                            </div>
+>>>>>>> 16604710a3685c7baa2f5a13ca3654172099717b:src/views/forum.html
                         </div>
 
                     </div>
