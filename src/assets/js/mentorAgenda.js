@@ -32,7 +32,8 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
 
     $scope.setAgenda = function () {
         //$scope.posts.agendaDate = new Date($scope.posts.agendaDate);
-
+        if($scope.posts.agendaText){
+            if($scope.posts.agendaDate){
         $scope.posts.agendaDate = $filter('date')($scope.posts.agendaDate, "dd-MM-yyyy"); // for conversion to string
         $scope.postList.push({ "agendaText": $scope.posts.agendaText, "agendaDate": $scope.posts.agendaDate });
 
@@ -51,6 +52,11 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
         }).catch(function (err) {
             console.log(err);
         });
+        }
+        }
+        else{
+            alert("Please Enter both Values");
+        }
 
     };
 
