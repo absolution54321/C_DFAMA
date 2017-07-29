@@ -4,7 +4,6 @@
             <a class="navbar-brand" href="#">Brand</a>
             <ul class="nav navbar-nav">
                 <form id="qform" class="navbar-form pull-left" role="search">
-                    <input type="text" class="form-control" placeholder="Search" />
                     <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
                 </form>
                 <li class="dropdown movable">
@@ -31,7 +30,7 @@
             </li>
 
             <li class="nav-header">
-                <div class="link"><i class="glyphicon glyphicon-comment"></i>Forum</div>
+                <div class="link" ng-click="goToForum()"><i class="glyphicon glyphicon-comment"></i>Forum</div>
             </li>
 
             <li class="nav-header">
@@ -58,8 +57,8 @@
             <div class="jumbotron">
                 <div class="row" id="refIdForContent">
                     <div class=" col-sm-6">
-                     <h2>Team Performance</h2>
-                   <zingchart id="chart1" zc-values="teamPerformanceList" zc-type="bar" zc-width="100%" style="display:block"></zingchart>
+                        <h2>Team Performance</h2>
+                        <zingchart id="chart1" zc-values="teamPerformanceList" zc-type="bar" zc-width="100%" style="display:block"></zingchart>
 
                     </div>
                 </div>

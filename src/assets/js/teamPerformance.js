@@ -13,9 +13,9 @@ app.controller("teamPerformance", function ($scope, $window, $http, $cookies, $l
         $window.location.href = "http://localhost:3000/#!/mentorAgenda";
     };
 
-    // $scope.goTeam = function () {
-    //     $window.location.href = "http://localhost:3000/#!/teamPerformance";
-    // };
+    $scope.goToForum = function () {
+        $location.path("/mentorForum");
+    };
 
 
     $scope.calculateTeamPerformance = function(){

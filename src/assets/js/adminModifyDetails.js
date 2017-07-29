@@ -59,8 +59,9 @@ $scope.changePassword= function(){
 };
 
 
+   
     $scope.goToForum=function(){
-        $location.path("/mentorDetails");
+        $location.path("/adminForum");
     };
 
     $scope.goToMentorDetails=function(){

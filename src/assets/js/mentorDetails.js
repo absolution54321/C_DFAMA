@@ -18,11 +18,9 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
         $scope.custom1 = $scope.custom1 === false ? true : false;
     }
 
-
     $scope.goToForum = function () {
-        $location.path("/mentorDetails");
+        $location.path("/adminForum");
     };
-
     $scope.goToMentorDetails = function () {
         $location.path("/mentorDetails");
     };
@@ -41,6 +39,13 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
 
     };
 
+    $scope.setEvent = function ($event) {
+
+        $scope.modalMentor.mentorId = angular.element($event.currentTarget).parent().prev().html();
+
+        console.log($scope.modalMentor.mentorId);
+    };
+
     $scope.listItemClicked = function (event) {
         var id = event.target.id;
         console.log(id);
@@ -52,11 +57,11 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
         $location.path("/adminHome");
     };
 
-    $scope.fetchMentor = function(obj){
+    $scope.fetchMentor = function (obj) {
 
-       $scope.jsonObj = { "mentorId": $scope.modalMentor.mentorId};
+        $scope.jsonObj = { "mentorId": $scope.modalMentor.mentorId };
 
-       var url = "http://localhost:3010/mentor/";
+        var url = "http://localhost:3010/mentor/";
         var hpromise = $http.post(url, $scope.jsonObj);
         hpromise.then(function (response) {
             console.log(response.data);
@@ -78,18 +83,16 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
 
     };
 
-    $scope.updateMentor = function()
-    {
+    $scope.updateMentor = function () {
 
-       var url = "http://localhost:3010/admin/mentorUpdate";
+        var url = "http://localhost:3010/admin/mentorUpdate";
         var hpromise = $http.post(url, $scope.modalMentor);
         hpromise.then(function (response) {
             console.log(response.data);
 
-            if(response.data.affectedRows > 0)
-                {
-                    alert("Changes Made");
-                }
+            if (response.data.affectedRows > 0) {
+                alert("Changes Made");
+            }
 
         }).catch(function (err) {
             console.log(err);

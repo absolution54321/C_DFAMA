@@ -23,7 +23,7 @@ app.controller("studentMarksTable", function ($scope, $location, $http, $cookies
     };
 
     $scope.goToForum = function () {
-        $location.path("/forum");
+        $location.path("/studentForum");
     };
 
 

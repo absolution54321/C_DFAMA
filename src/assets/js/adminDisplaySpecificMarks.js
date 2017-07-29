@@ -23,8 +23,9 @@ $scope.toggleData1 = function(){
     $scope.custom1 = $scope.custom1 === false ? true : false;
 }
 
+   
     $scope.goToForum=function(){
-        $location.path("/mentorDetails");
+        $location.path("/adminForum");
     };
 
     $scope.goToMentorDetails=function(){

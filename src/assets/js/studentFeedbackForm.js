@@ -37,7 +37,7 @@ app.controller("studentFeedbackForm", function ($scope, $location, $http, $cooki
   };
 
   $scope.goToForum = function () {
-    $location.path("/forum");
+    $location.path("/studentForum");
   };
 
   $scope.performLogOut = function () {
