@@ -171,7 +171,11 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
             $location.path("/");
         }
 
-        if ($window.location.href == 'http://localhost:3000/#!/') {
+        if ($window.location.href == 'http://localhost:3000/'
+            || $window.location.href == 'http://localhost:3000/#!/'
+            || $window.location.href == 'http://localhost:3000/#!'
+            || $window.location.href == 'http://localhost:3000/#'
+            || $window.location.href == 'http://localhost:3000') {
             if (adminId != undefined) {
                 $location.path("/adminHome");
             }
