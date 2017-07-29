@@ -32,29 +32,29 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
 
     $scope.setAgenda = function () {
         //$scope.posts.agendaDate = new Date($scope.posts.agendaDate);
-        if($scope.posts.agendaText){
-            if($scope.posts.agendaDate){
-        $scope.posts.agendaDate = $filter('date')($scope.posts.agendaDate, "dd-MM-yyyy"); // for conversion to string
-        $scope.postList.push({ "agendaText": $scope.posts.agendaText, "agendaDate": $scope.posts.agendaDate });
+        if ($scope.posts.agendaText) {
+            if ($scope.posts.agendaDate) {
+                $scope.posts.agendaDate = $filter('date')($scope.posts.agendaDate, "dd-MM-yyyy"); // for conversion to string
+                $scope.postList.push({ "agendaText": $scope.posts.agendaText, "agendaDate": $scope.posts.agendaDate });
 
-        $scope.jsonObj = {
-            "mentorId": $cookies.get('mentorId'),
-            "agendaText": $scope.posts.agendaText,
-            "agendaDate": $scope.posts.agendaDate
-        };
+                $scope.jsonObj = {
+                    "mentorId": $cookies.get('mentorId'),
+                    "agendaText": $scope.posts.agendaText,
+                    "agendaDate": $scope.posts.agendaDate
+                };
 
-        var url = "http://localhost:3010/mentor/agenda";
-        var hpromise = $http.post(url, $scope.jsonObj);
+                var url = "http://localhost:3010/mentor/agenda";
+                var hpromise = $http.post(url, $scope.jsonObj);
 
-        hpromise.then(function (response) {
-            console.log(response);
+                hpromise.then(function (response) {
+                    console.log(response);
 
-        }).catch(function (err) {
-            console.log(err);
-        });
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
         }
-        }
-        else{
+        else {
             alert("Please Enter both Values");
         }
 
@@ -84,27 +84,27 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
         });
     };
 
-    $scope.setEvent = function($event){
+    $scope.setEvent = function ($event) {
 
         $scope.editPost.currentAgenda = angular.element($event.currentTarget).parent().children().first().val();
 
     };
 
-    $scope.updateAgenda = function(){
+    $scope.updateAgenda = function () {
 
         var url = "http://localhost:3010/mentor/updateAgenda"
 
         var hpromise = $http.post(url, $scope.editPost);
 
-        hpromise.then(function(response){
+        hpromise.then(function (response) {
 
-            if(response.data.affectedRows > 0){
+            if (response.data.affectedRows > 0) {
                 console.log(response.data);
             }
 
             $location.path("/mentorAgenda");
 
-        }).catch(function(err){
+        }).catch(function (err) {
             console.log(err);
         });
 

@@ -26,7 +26,8 @@
                     <form class="row">
                         <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.content"></textarea>
 
-                        <select style="float: left;margin-right: 17px;margin-top: 15px;" required data-error="Select a Tag!" ng-model="currentQuestion.tag" tabindex="1">
+                        <select style="float: left;margin-right: 17px;margin-top: 15px;" required data-error="Select a Tag!" ng-model="currentQuestion.tag"
+                            tabindex="1">
                                 <option value="" selected >Select Tag</option>
                                 <option value="cpp" >C++</option>
                                 <option value="ds" >Data Structures</option>
@@ -64,7 +65,7 @@
                                 data-target="#firstAnswer" ng-click="saveEvent($event)">Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
                             <p style="font-size: 15px;margin-top: 55px;margin-left: 30px;">Posted By:{{item.studentId}} at {{item.postedDate | date}}</p>
-                            <p ng-hide="true">{{item.questionId}}</p>    
+                            <p ng-hide="true">{{item.questionId}}</p>
                         </div>
                     </div>
                     <br>
@@ -77,8 +78,8 @@
                                 Question
                             </label>
                             <input class="form-control col-sm-6" placeholder="{{item.content}}" disabled/>
-                            <button class="btn btn-primary btn-block" ng-hide="true" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;" data-toggle="modal"
-                                data-target="#myAnswer" ng-click="saveEvent($event)" type="submit">Add Answer</button>
+                            <button class="btn btn-primary btn-block" ng-hide="true" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;"
+                                data-toggle="modal" data-target="#myAnswer" ng-click="saveEvent($event)" type="submit">Add Answer</button>
                             <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
                             <p style="font-size: 15px;margin-top: 55px;margin-left: 120px;">Posted By:{{item.postedBy}} at {{item.postedDate}}</p>
                             <p ng-hide="hideid">{{item.questionId}}</p>
@@ -88,9 +89,9 @@
                                 Answers
                         </label>
                         <div class="list-group-item" ng-repeat="item1 in answeredQuestionsAnswers" ng-if="item.questionId==item1.questionId">
-                                <input class="form-control col-sm-6" placeholder="{{item1.content}}" disabled/>
+                            <input class="form-control col-sm-6" placeholder="{{item1.content}}" disabled/>
                             <p style="font-size: 15px;margin-top: 55px;">Posted By:{{item.mentorId}} at {{item.postedDate | date}}</p>
-    
+
                         </div>
 
                     </div>

@@ -20,68 +20,69 @@ app.controller("studentForum", function ($scope, $window, $compile, $filter, $ht
     $scope.comments = [];
     $scope.answeredQuestionsAnswers = [];
     $scope.username = $cookies.get('studentUserName');
-    $scope.id =1;
+    $scope.id = 1;
     $scope.postQuestion = function () {
-        if($scope.currentQuestion.content){
-            if($scope.currentQuestion.tag){
-            $scope.jsonObj = {
-            "content": $scope.currentQuestion.content,
-            "tag": $scope.currentQuestion.tag,
-            "studentid": $cookies.getObject('studentId'),
-            "postedDate":new Date(),
-            "questionId":$scope.id
+        if ($scope.currentQuestion.content) {
+            if ($scope.currentQuestion.tag) {
+                $scope.jsonObj = {
+                    "content": $scope.currentQuestion.content,
+                    "tag": $scope.currentQuestion.tag,
+                    "studentid": $cookies.getObject('studentId'),
+                    "postedDate": new Date(),
+                    "questionId": $scope.id
+                }
+                var url = "http://localhost:3010/forum/postQuestion";
+
+                var hpromise = $http.post(url, $scope.jsonObj);
+                hpromise.then(function (response) {
+                    console.log(response);
+
+                }).catch(function (err) {
+                    console.log(err);
+                    alert("Some error to post question");
+                });
+
+                $scope.unansweredQuestions.push($scope.currentQuestion);
+                $scope.id += $scope.id;
+                //  $scope.currentQuestion.content = "";
+                //     $scope.currentQuestion.tag = "";
+            }
         }
-        var url = "http://localhost:3010/forum/postQuestion";
 
-        var hpromise = $http.post(url, $scope.jsonObj);
-        hpromise.then(function (response) {
-            console.log(response);
-            
-        }).catch(function (err) {
-            console.log(err);
-            alert("Some error to post question");
-        });
-        
-         $scope.unansweredQuestions.push($scope.currentQuestion);
-         $scope.id +=$scope.id;
-        //  $scope.currentQuestion.content = "";
-        //     $scope.currentQuestion.tag = "";
-        }}
 
-       
-    else{
-        alert("Write question and select Tag before posting");
-    };
-        
+        else {
+            alert("Write question and select Tag before posting");
+        };
+
     };
 
     $scope.answerQuestion = function () {
-        if($scope.Answers.answerText){
-        $scope.jsonObj = {
-            "qid": $scope.Answers.id,
-            "answer": $scope.Answers.answerText,
-            "mentorId": $cookies.get('mentorId'),
-            "postedDate":new Date()
+        if ($scope.Answers.answerText) {
+            $scope.jsonObj = {
+                "qid": $scope.Answers.id,
+                "answer": $scope.Answers.answerText,
+                "mentorId": $cookies.get('mentorId'),
+                "postedDate": new Date()
+            }
+
+            console.log($scope.Answers.answerText);
+
+            var url = "http://localhost:3010/forum/furtherAnswers"
+
+            var hpromise = $http.post(url, $scope.jsonObj);
+
+            hpromise.then(function (response) {
+
+                console.log(response.data);
+
+            }).catch(function (err) {
+                console.log(err);
+            });
+            $scope.answeredQuestionsAnswers.push($scope.Answers);
         }
-
-        console.log($scope.Answers.answerText);
-
-        var url = "http://localhost:3010/forum/furtherAnswers"
-
-        var hpromise = $http.post(url, $scope.jsonObj);
-
-        hpromise.then(function (response) {
-
-            console.log(response.data);
-
-        }).catch(function (err) {
-            console.log(err);
-        });
-        $scope.answeredQuestionsAnswers.push($scope.Answers);
+        else {
+            alert("Write something before posting");
         }
-    else{
-        alert("Write something before posting");
-    }
 
     };
 
@@ -187,8 +188,8 @@ app.controller("studentForum", function ($scope, $window, $compile, $filter, $ht
 
     $scope.forumInit = function () {
         //for fetching unanswered questions
-        $scope.unansweredQuestions.length=0;
-        $scope.answeredQuestionsAnswers.length=0;
+        $scope.unansweredQuestions.length = 0;
+        $scope.answeredQuestionsAnswers.length = 0;
         var url = "http://localhost:3010/forum/forumInitA";
         var hpromise = $http.get(url);
 
