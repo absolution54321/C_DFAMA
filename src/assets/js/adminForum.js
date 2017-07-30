@@ -19,7 +19,11 @@ app.controller("adminForum", function ($scope,$anchorScroll,$window, $compile, $
     $scope.Answers = {};
     $scope.comments = [];
     $scope.answeredQuestionsAnswers = [];
+<<<<<<< HEAD
     $scope.username = $cookies.get('adminUserName');
+=======
+    $scope.username = $cookies.get('mentorUserName');
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
 
     $scope.backToTop = function() {
     $location.hash('scrollToDivID');
@@ -128,7 +132,11 @@ $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev(
             "tag": $scope.search.tag
         };
         
+<<<<<<< HEAD
         if($scope.search.tag!=""){
+=======
+        if($scope.search.tag){
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
             console.log($scope.search.tag);
             
             var url = "http://localhost:3010/forum/searchTagA";
@@ -174,7 +182,11 @@ $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev(
         });
         }
         else {
+<<<<<<< HEAD
             $scope.forumInit();
+=======
+            alert("select tag before searching");
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
         }
     };
 

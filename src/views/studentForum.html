@@ -7,7 +7,11 @@
                 <div class="col-sm-1 col-sm-offset-3" style="margin-top: 25px;color: darkgray;font-size: 17px;" ng-click="goToRespHomePage();"><i class="glyphicon glyphicon-home"></i> Home
                 </div>
 
+<<<<<<< HEAD
                 <select style="margin-top: 28px;background-color: lightsteelblue;color: black;width: 97px;margin-left: 74px;" 
+=======
+                <select style="margin-top: 28px;background-color: lightsteelblue;color: black;width: 97px;margin-left: 74px;" required data-error="Select a Tag!"
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                     ng-model="search.tag" tabindex="1">
                                 <option value="" selected >Select Tag</option>
                                 <option value="CPP" >C++</option>
@@ -27,7 +31,11 @@
                 <ul class="nav navbar-nav">
                     <form id="qform" class="navbar-form pull-left" role="search">
                         <button type="button" style="margin-top: -8px;background-color: lightsteelblue;" class="btn btn-default" ng-click="searchTagwise($event)"><i class="glyphicon glyphicon-search"></i> Search</button>
+<<<<<<< HEAD
                         <button type="button" style="margin-top: -8px;margin-left: 160px;background-color: lightsteelblue;" class="btn btn-default"
+=======
+                        <button type="button" style="margin-top: -8px;margin-left: 220px;background-color: lightsteelblue;" class="btn btn-default"
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                             ng-click="performLogOut()"><i class="glyphicon glyphicon-off"></i> Logout</button>
                     </form>
                 </ul>
@@ -84,14 +92,23 @@
                                 <blockquote style="border-left: 5px solid cornflowerblue;"><span class="glyphicon glyphicon-question-sign" style="font-size: 25px;"></span> {{item.contentQue}}</blockquote>
                                  <div class="row">
                                     <button class="btn" style="float:left;background-color: #cfc0ea;"><span class="glyphicon glyphicon-tag" style="font-size: 11px;"></span>  {{item.tag}}</button>
+<<<<<<< HEAD
                                     <p class="col-sm-offset-1 col-sm-6" style="font-size: 15px;margin-left:auto;margin-top: 6px;">Posted By:{{item.studentId}} at {{item.postedDate | date:'short'}}</p>
                                     <p ng-hide="true">{{item1.questionId}}</p>
+=======
+                                    <p class="col-sm-offset-1 col-sm-6" style="font-size: 15px;margin-left:auto;margin-top: 6px;">Posted By:{{item.studentid}} at {{item.postedDate | date:'short'}}</p>
+                                    
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                                 </div>
                             </div>
 
                         </div>
 
+<<<<<<< HEAD
                         <button ng-click="backToTop()" class="btn btn-primary btn-block" style="font-size:15px;width: 15%;margin-top: inherit;margin-left: auto;margin-right: -35px;"><i class="glyphicon glyphicon-arrow-up"> Top</i></button>
+=======
+                        <button ng-click="backToTop()" class="btn btn-primary btn-block" style="font-size:15px;width: 13%;margin-top: inherit;margin-left: auto;margin-right: -35px;"><i class="glyphicon glyphicon-arrow-up"> Top</i></button>
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                     </div>
                 </div>
                 <div style="width:50%;float:right">
@@ -104,20 +121,30 @@
                             <div class="row">
                                 <blockquote style="border-left: 5px solid cornflowerblue;"><span class="glyphicon glyphicon-ok-circle" style="font-size: 25px;"></span> {{item1.contentQue}}</blockquote>
                                 <div class="row">
+<<<<<<< HEAD
                                     <button class="btn btn-primary btn-block" style="width: 20%;float: left;" type="submit" ng-click="hiddenAnswers=!hiddenAnswers">Answers</button>
                                     <button class="btn" style="float:left;background-color: #cfc0ea;margin-left: 10px;"><span class="glyphicon glyphicon-tag" style="font-size: 11px;"></span> {{item1.tag}}</button>
+=======
+                                    <button class="btn btn-primary btn-block" style="width: 20%;float: left;" type="submit" ng-click="toggleAnswers()">Answers</button>
+                                    <button class="btn" style="float:left;background-color: #cfc0ea;margin-left: 10px;"><span class="glyphicon glyphicon-tag" style="font-size: 11px;"></span> {{item.tag}}</button>
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                                     <p class="col-sm-offset-1 col-sm-6" style="font-size: 15px;margin-left:-7px;margin-top: 8px;">Posted By:{{item1.studentId}} at {{item1.postedDate | date : 'short'}}</p>
                                     <p ng-hide="true">{{item1.questionId}}</p>
                                 </div>
                             </div>
                             <br>
+<<<<<<< HEAD
                             <div class="list-group-item" ng-show="hiddenAnswers" data-ng-repeat="item2 in answeredQuestionsAnswers | orderBy:'questionId':true" style="background-color: lavender;" ng-if="item1.questionId==item2.questionId">
+=======
+                            <div class="list-group-item" data-ng-repeat="item2 in answeredQuestionsAnswers | orderBy:'questionId':true" style="background-color: lavender;" ng-if="item1.questionId==item2.questionId">
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                                 <blockquote style="border-left: 5px solid cornflowerblue;font-size: 15px;"><span class="glyphicon glyphicon-ok" style="font-size: 13px;"></span> {{item2.contentAns}}</blockquote>
                                 <p style="font-size: 13px;margin-top: -7px;margin-bottom: -19px;color:blue;"> Answered By:{{item2.mentorId}} at {{item2.postedDate | date : 'short'}}</p>
                                 <p ng-hide="true">{{item2.questionId}}</p>
                                 <p ng-hide="true">{{item2.answerId}}</p>
                                 <br>
                             </div>
+<<<<<<< HEAD
                             
                             <div class="list-group-item" data-ng-repeat="item1 in answeredQuestionsAnswers|orderBy:'postedDate':true" style="background-color: lavender;" ng-if="item.questionId==item1.questionId">
                                 <blockquote style="border-left: 5px solid cornflowerblue;" ><span class="glyphicon glyphicon-ok"></span>  {{item1.content}}</blockquote>
@@ -125,6 +152,18 @@
                             </div>
                         </div>
                         <button ng-click="backToTop2()" class="btn btn-primary btn-block" style="font-size:15px;width: 15%;margin-top: inherit;margin-left: auto;margin-right: -35px;"><i class="glyphicon glyphicon-arrow-up"> Top</i></button>
+=======
+                            <label style="margin-top: 1%; color:dodgerblue;">
+
+                                Answers
+                        </label>
+                            <div class="list-group-item" 1ng-repeat="item1 in answeredQuestionsAnswers" style="background-color: lavender;" ng-if="item.questionId==item1.questionId">
+                                <blockquote style="border-left: 5px solid cornflowerblue;" ><span class="glyphicon glyphicon-ok"></span>  Answers will come here{{item1.content}}</blockquote>
+                                <p style="font-size: 15px;">  Answered By:{{item.mentorId}} at {{item.postedDate | date}}</p>
+                            </div>
+                        </div>
+                        <button ng-click="backToTop2()" class="btn btn-primary btn-block" style="font-size:15px;width: 13%;margin-top: inherit;margin-left: auto;margin-right: -35px;"><i class="glyphicon glyphicon-arrow-up"> Top</i></button>
+>>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                     </div>
                 </div>
             </div>
