@@ -27,7 +27,6 @@ $scope.backToTop2 = function() {
     $scope.comments = [];
     $scope.answeredQuestionsAnswers = [];
     $scope.username = $cookies.get('studentUserName');
-<<<<<<< HEAD
 
     $scope.postQuestion = function () {
         console.log($scope.currentQuestion.contentQue.length);
@@ -42,33 +41,13 @@ $scope.backToTop2 = function() {
             "postedDate":$scope.currentQuestion.postedDate
         }
         var url = "http://localhost:3010/forum/postQuestion"
-=======
-
-    $scope.postQuestion = function () {
-        console.log($scope.currentQuestion.contentQue.length);
-        if($scope.currentQuestion.contentQue.length <1000 && $scope.currentQuestion.contentQue.length > 0){
-            if($scope.currentQuestion.tag){
-                $scope.currentQuestion.studentid=$cookies.getObject('studentId');
-                $scope.currentQuestion.postedDate=new Date();
-            $scope.jsonObj = {
-            "contentQue": $scope.currentQuestion.contentQue,
-            "tag": $scope.currentQuestion.tag,
-            "studentid": $cookies.getObject('studentId'),
-            "postedDate":new Date()
-        }
-
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
         var hpromise = $http.post(url, $scope.jsonObj);
         hpromise.then(function (response) {
             console.log(response);
             if(response.data.affectedRows>0){
-<<<<<<< HEAD
                  $scope.forumInit();
                 $scope.unansweredQuestions.push($scope.currentQuestion);
                
-=======
-                $scope.unansweredQuestions.push($scope.currentQuestion);
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
                 alert("Question posted successfully....");
                 console.log($scope.currentQuestion);
     //             $scope.currentQuestion.contentQue = "";
@@ -118,7 +97,6 @@ $scope.backToTop2 = function() {
     $scope.hideid = true;
     $scope.hide = true;
     $scope.show = true;
-<<<<<<< HEAD
 
 
 
@@ -178,10 +156,6 @@ $scope.backToTop2 = function() {
             console.log(response);
             if (response.data.length > 0) {
                 $scope.answeredQuestionsAnswers = response.data;
-=======
-
-
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
 
                 console.log(response.data);
             }
