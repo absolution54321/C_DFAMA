@@ -1,0 +1,152 @@
+<div class="wrap">
+    <nav class="nav-bar navbar-inverse" role="navigation">
+        <div id="top-menu" class="container-fluid active">
+            <a class="navbar-brand" href="#" style="color: aliceblue;">DAC Forum and Mentor Assessment</a>
+            <ul class="nav navbar-nav">
+                <form id="qform" class="navbar-form pull-left" role="search">
+                    <!-- <input type="text" class="form-control" placeholder="Search" /> -->
+                    <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+    <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
+
+    <ul class="nav nav-list accordion">
+
+      <li class="nav-header">
+        <div class="link" ng-click="goHome();"><i class="	glyphicon glyphicon-home"></i>Home</div>
+      </li>
+
+      <li class="nav-header">
+        <div class="link" ng-click="goToForum();"><i class="fa fa-lg fa-facebook"></i>Forum</div>
+
+      </li>
+
+      <li class="nav-header">
+        <div class="link" ng-click="goToMentorDetails();"><i class="fa fa-lg fa-users"></i>Mentor</div>
+
+      </li>
+
+      <li class="nav-header">
+        <div class="link" ng-click="goToUpload();"><i class="fa fa-lg fa-map-marker"></i>Upload</div>
+      </li>
+
+       <li class="nav-header">
+        <div class="link" ng-click="goToMarks();"><i class="fa fa-lg fa-map-marker"></i>Marks</div>
+      </li>
+      
+
+
+
+
+    </ul>
+  </aside>
+    <!--Body content-->
+    <div class="content">
+        <!--<div class="top-bar" style="color:cornflowerblue;">       
+      <a href="#menu" class="side-menu-link burger"> 
+        <span class='burger_inside' id='bgrOne'></span>
+        <span class='burger_inside' id='bgrTwo'></span>
+        <span class='burger_inside' id='bgrThree'></span>
+      </a>      
+    </div>-->
+        <section class="content-inner" ng-init="loadAllMentorsDetailsForAdminLogin()">
+
+            <div class="container" style="width:90%">
+                <div ng-hide="custom" style="color: black">Insert Successfull</div>
+                <div ng-hide="custom1" style="color: red">Insert Fail</div>
+                <h2 style="    font-family: cursive;">Student Marks</h2>
+                <br>
+                <h5>Student Id:</h5><input type="text" ng-model="data.studentId" style="width: 135px;height: 36px;" placeholder="Student Id" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th> Subject Name</th>
+                            <th>Lab Marks</th>
+                            <th>Mcq Marks</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div >
+                <div >
+
+                    <!-- Modal content-->
+                    <form ng-submit="adminStudentsMarks()">
+                    <div>
+                        <div>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                           
+                        </div>
+                        <div style="    margin-left: -133px;">
+
+                               <form name="myform"> 
+                                <div class="form-group" style="    margin-top: 30px;">
+                                    <label for="mentorId" style="margin-left: -68%;font-size: 19px;">cpp</label>
+                                    <input type="text" name="cppLab" style="width: 240px;margin-left: 483px;height: 37px;" ng-model="data.cppLab" class="col-sm-offset-4 col-sm-2" class="form-control" id="cppLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-minlength="1" ng-maxlength="2"  required>
+                                    <input type="text" style="margin-left: 100px;height: 37px;" ng-model="data.cppMcq" class="col-sm-offset-2 col-sm-2" class="form-control" id="cppMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                    
+                            
+                                </div>
+                                <div class="form-group">
+                                    <label for="mentorId" style="margin-left: -68%;font-size: 19px;">Data Stucture</label>
+                                    <input type="text" ng-model="data.dsLab" style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="dsLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text" ng-model="data.dsMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="dsMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mentorId" style="margin-left: -68%;font-size: 19px;">Operating System</label>
+                                    <input type="text" ng-model="data.osLab" style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="osLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text" ng-model="data.osMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="osMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mentorId" style="margin-left: -68%;font-size: 19px;">Core Java</label>
+                                    <input type="text" ng-model="data.coreLab" style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="coreLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text" ng-model="data.coreMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="coreMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mentorId"  style="margin-left: -68%;font-size: 19px;">AWP</label>
+                                    <input type="text" ng-model="data.awpLab" style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="awpLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text" ng-model="data.awpMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="awpMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mentorId" style="margin-left: -72%;font-size: 19px;">Database Technologies</label>
+                                    <input type="text"  ng-model="data.dbtLab" style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="dbtLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text"  ng-model="data.dbtMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="dbtMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mentorId" style="margin-left: -68%;font-size: 19px;">Advance Java</label>
+                                   <input type="text" ng-model="data.advLab" style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="advLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text" ng-model="data.advMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="advMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                   <label for="mentorId" style="margin-left: -71%;font-size: 19px;">Software Engineering</label>
+                                    <input type="text" ng-model="data.seLab" style="    width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="seLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                    <input type="text" ng-model="data.seMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="seMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required>
+                                </div>
+                                <div class="form-group">
+                                  <label for="mentorId" style="margin-left: -68%;font-size: 19px;">.Net</label>
+                                    <input type="text" ng-model="data.netLab"style="width: 240px;margin-left: 483px;margin-top: 15px;height: 37px;" class="col-sm-offset-4 col-sm-2" class="form-control" id="netLab" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required minlength="1" maxlength="2">
+                                    <input type="text" ng-model="data.netMcq" style="margin-left: 100px;    margin-top: 15px;height: 37px;" class="col-sm-offset-2 col-sm-2" class="form-control" id="netMcq" onkeypress='return event.charCode >= 48 && event.charCode <= 57' required minlength="1" maxlength="2">
+                                </div>
+                               </form>
+                                
+                        
+                        </div>
+                        <div >
+                            <input type="submit" style="margin-top: 59px;margin-left: 700px;" class="btn btn-primary" ng-click="insertStudentMarks()">SUBMIT
+                           
+                        </div>
+                    </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+</div>

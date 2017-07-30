@@ -1,157 +1,112 @@
 <div class="wrap">
-    <nav class="nav-bar navbar-inverse navbar-fixed-top" role="navigation">
-        <div id="top-menu" class="container-fluid active" ng-init="getforumUserName()">
-            <a class="navbar-brand">Hi {{username}} Dac Forum</a>
+    <nav class="nav-bar navbar-fixed-top" style="background-color: darkblue;" role="navigation">
+
+        <div id="top-menu" style="color: white;" class="container-fluid active" ng-init="getforumUserName()">
+            <a style="color: white;margin-top: 10px;" class="navbar-brand">Hi {{username}}, Welcome to Dac Forum</a>
+            <div class="row">
+                <div class="col-sm-1 col-sm-offset-3" style="margin-top: 25px;color: darkgray;font-size: 17px;" ng-click="goToRespHomePage();"><i class="glyphicon glyphicon-home"></i> Home
+                </div>
+
+                <select style="margin-top: 28px;background-color: lightsteelblue;color: black;width: 97px;margin-left: 74px;" 
+                    ng-model="search.tag" tabindex="1">
+                    <option value="" selected >Select Tag</option>
+                    <option value="CPP" >C++</option>
+                    <option value="DS" >Data Structures</option>
+                    <option value="OS" >Operating System</option>
+                    <option value="JAVA" >Java Technologies</option>
+                    <option value="AWP" >Web Programming</option>
+                    <option value="DOTNET" >Dotnet</option>
+                    <option value="SE" >Software Engg.</option>
+                    <option value="DBT" >Database Technologies</option>
+                    <option value="CCEE" >CCEE</option>
+                    <option value="Placement" >Placement</option>
+                    <option value="Communication" >Communications</option>
+                    <option value="Aptitude" >Aptitude</option>
+                    <option value="Other" >Other</option>
+                </select>
+                <ul class="nav navbar-nav">
+                    <form id="qform" class="navbar-form pull-left" role="search">
+                        <button type="button" style="margin-top: -8px;background-color: lightsteelblue;" class="btn btn-default" ng-click="searchTagwise($event)"><i class="glyphicon glyphicon-search"></i> Search</button>
+                        <button type="button" style="margin-top: -8px;margin-left: 160px;background-color: lightsteelblue;" class="btn btn-default"
+                            ng-click="performLogOut()"><i class="glyphicon glyphicon-off"></i> Logout</button>
+                    </form>
+                </ul>
+            </div>
         </div>
     </nav>
 
-    <div id="side-menu" role="navigation" style="z-index:0; margin-top: 67px;">
-        <ul class="nav nav-list accordion">
-            <li class="nav-header">
-                <div class="link" ng-click="goToRespHomePage();" style="position: fixed;"><i class="glyphicon glyphicon-home"></i>Home</div>
-            </li>
-
-        </ul>
-    </div>
-
     <!--Body content-->
     <div class="content">
-        <section class="content-inner container" style="overflow:scroll;margin-top: 67px;">
-            <div class="row" ng-hide="true">
-
-                <!-- <div class="jumbotron form-group" style="margin-top: 22px;margin-right: 20px;padding-bottom: 8px;padding-top: 23px;padding-left: 25px;">
-                    <label style="margin-top: 1%; color:dodgerblue;">
-                                Write your Question here...
-                    </label>
-                    <form class="row">
-                        <textarea class="form-control col-sm-6" placeholder="Post your query here....." style="margin-right: 20px;width: 80%;" ng-model="currentQuestion.question"></textarea>
-
-                        <select style="float: left;margin-right: 17px;margin-top: 15px;">
-                                <option disabled selected>Select Tag</option>
-                                <option value="cpp" ng-model="currentQuestion.tag" ng-value="CPP">C++</option>
-                                <option value="ds" ng-model="currentQuestion.tag" ng-value="DS">Data Structures</option>
-                                <option value="os" ng-model="currentQuestion.tag" ng-value="OS">Operating System</option>
-                                <option value="java" ng-model="currentQuestion.tag" ng-value="Java">Java Technologies</option>
-                                <option value="awp" ng-model="currentQuestion.tag" ng-value="Web-Tech">Web Programming</option>
-                                <option value="net" ng-model="currentQuestion.tag" ng-value="Dot-Net">Dotnet</option>
-                                <option value="se" ng-model="currentQuestion.tag" ng-value="SE">Software Engg.</option>
-                                <option value="se" ng-model="currentQuestion.tag" ng-value="DBT">Database Technologies</option>
-                                <option value="ccee" ng-model="currentQuestion.tag" ng-value="CCEE">CCEE</option>
-                                <option value="placement" ng-model="currentQuestion.tag" ng-value="Placements">Placement</option>
-                                <option value="communication" ng-model="currentQuestion.tag" ng-value="Commn">Communications</option>
-                                <option value="apti" ng-model="currentQuestion.tag" ng-value="Aptitude">Aptitude</option>
-                                <option role="separator" class="divider">---------------------------</option>
-                                <option value="other" ng-model="currentQuestion.tag" ng-value="Other">Other</option>
-                            </select>
-
-                        <button class="btn btn-primary btn-block" style="width: 6%;margin-top: 16px;" type="submit" ng-click="postQuestion()">Post</button>
-                        <dr>
-
-                    </form>
-                </div> -->
-
-            </div>
-
-            <div class="row" ng-init="forumInit()">
-
-                <div class="jumbotron form-group list-group" style="margin-top: 22px;margin-right: 20px;padding-bottom: 8px;padding-top: 23px;padding-left: 25px;">
-                    <label style="margin-top: 1%; color:dodgerblue;">
+        <section ng-init="forumInit()" class="content-inner container" style="height: 735px;margin-top: 63px;border: solid 3px darkslateblue;background-color: azure;margin-left: -288px;box-shadow: none;border-radius: inherit;width: 125%;overflow:auto">
+            <div class="row" style="margin-left: 4px;">
+                <div style="width:50%;float:left">
+                    <div class="jumbotron form-group list-group" style="border: solid #967f7f;background-color: snow;height: 96.7%;margin-top: 11px;margin-left: -7px;padding-bottom: 8px;overflow:scroll;padding-top: 23px;padding-left: 25px;">
+                        <label id="scrollToDivID" style="margin-top: -2%; font-size: 18px;color:dodgerblue;">
                                 Questions to answer
-                    </label>
-                    <div class="list-group-item" ng-repeat="item in unansweredQuestions">
-                        <div class="row">
-                            <input class="form-control col-sm-6" placeholder="{{item.content}}" disabled/>
-                            <button class="btn btn-primary btn-block" ng-hide="false" style="width: 8%;margin-top: 16px;float: left;" type="submit" data-toggle="modal"
-                                data-target="#firstAnswer" ng-click="saveEvent($event)">Answer</button>
-                            <input class="form-control col-sm-1" style="width: 10%;margin-left: 23px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 210px;">Posted By:{{item.studentId}} at {{item.postedDate | date}}</p>
-                            <p ng-hide="true">{{item.questionId}}</p>
-                        </div>
-                    </div>
-                    <br>
-                    <label style="margin-top: 1%; color:dodgerblue;">
-                                Answered Questions
-                    </label>
-                    <div class="list-group-item" ng-repeat="item in answeredQuestions">
-                        <div class="row">
-                            <label style="margin-top: 1%; color:dodgerblue;">
-                                Question
-                            </label>
-                            <input class="form-control col-sm-6" placeholder="{{item.content}}" disabled/>
-                            <button class="btn btn-primary btn-block" ng-hide="false" style="width: 11%;margin-top: 16px;float: left;margin-left: 19px;"
-                                data-toggle="modal" data-target="#myAnswer" ng-click="saveEvent($event)" type="submit">Add Answer</button>
-                            <input class="form-control col-sm-1" style="width: 10%;margin-left: 19px;margin-top: 16px;" placeholder="{{item.tag}}" disabled></input>
-                            <p style="font-size: 15px;margin-top: 55px;margin-left: 372px;">Posted By:{{item.postedBy}} at {{item.postedDate | date}}</p>
-                            <p ng-hide="hideid">{{item.questionId}}</p>
-                        </div>
-                        <br>
-                        <label style="margin-top: 1%; color:dodgerblue;">
-                                Answers
                         </label>
-                        <div class="list-group-item" ng-repeat="item1 in answeredQuestionsAnswers" ng-if="item.questionId==item1.questionId">
+                        <div class="list-group-item" data-ng-repeat="item in unansweredQuestions | orderBy:'questionId':true" style="background-color: honeydew;margin-right: -6%;">
                             <div class="row">
+                                <blockquote style="border-left: 5px solid cornflowerblue;"><span class="glyphicon glyphicon-question-sign" style="font-size: 25px;"></span> {{item.contentQue}}</blockquote>
 
-                                <input class="form-control col-sm-6" placeholder="{{item1.content}}" disabled/>
+                                <div class="row">
+                                    <button class="btn btn-primary btn-block" style="width: 12%;margin-right: 12px;float: left;" type="submit" ng-click="hiddenDiv = !hiddenDiv">Answer</button>
+                                    <button class="btn" style="float:left;background-color: #cfc0ea;"><span class="glyphicon glyphicon-tag" style="font-size: 11px;"></span>  {{item.tag}}</button>
+                                    <p class="col-sm-offset-1 col-sm-6" style="font-size: 15px;margin-left:auto;margin-top: 6px;">Posted By:{{item.studentId}} at {{item.postedDate | date:'short'}}</p>
+                                    <p ng-hide="true">{{item.questionId}}</p>
+                                </div>
+                                <form class="row" ng-show="hiddenDiv">
+                                    <textarea class="form-control col-sm-6" placeholder="Write your answer here, maximum 1500 characters allowed." style="margin-right: 20px;width: 80%;"
+                                        maxlength="1000" minlength="1" data-error="Write something before posting" ng-model="Answers.contentAns"></textarea>
+
+                                    <button class="btn btn-primary btn-block" style="width: 10%;margin-top: 16px;" type="submit" ng-click="firstAnswerQuestion($event)">Post</button>
+                                    <dr>
+
+                                </form>
+                            </div>
+                        </div>
+
+                        <button ng-click="backToTop()" class="btn btn-primary btn-block" style="font-size:15px;width: 15%;margin-top: inherit;margin-left: auto;margin-right: -35px;"><i class="glyphicon glyphicon-arrow-up"> Top</i></button>
+                    </div>
+                </div>
+                <div style="width:50%;float:right">
+                    <div class="jumbotron col-sm-6 form-group list-group" style="height: 96.8%;border: solid #967f7f;background-color: snow;margin-top: 11px;margin-left: 27px;width: 93%;overflow:scroll;padding-bottom: 8px;padding-top: 23px;padding-left: 25px;">
+                        <br>
+                        <label id="scrollToDivID2" style="margin-top: -6%;font-size: 18px; color:dodgerblue;">
+                                Answered Questions
+                        </label>
+                        <div class="list-group-item" data-ng-repeat="item1 in answeredQuestions | orderBy:'questionId':true" style="background-color: honeydew;margin-right: -6%;">
+                            <div class="row">
+                                <blockquote style="border-left: 5px solid cornflowerblue;"><span class="glyphicon glyphicon-ok-circle" style="font-size: 25px;"></span> {{item1.contentQue}}</blockquote>
+                                <div class="row">
+                                    <button class="btn btn-primary btn-block" style="width: 18%;float: left;margin-right: 10px;" type="submit" ng-click="hiddenAnsPost=!hiddenAnsPost">Add Answer</button>
+                                    <button class="btn btn-primary btn-block" style="width: 14%;float: left;margin-top: auto;" type="submit" ng-click="hiddenAnswers=!hiddenAnswers">Answers</button>
+                                    <button class="btn" style="float:left;background-color: #cfc0ea;margin-left: 10px;"><span class="glyphicon glyphicon-tag" style="font-size: 11px;"></span>  {{item1.tag}}</button>
+                                    <p class="col-sm-offset-1 col-sm-6" style="font-size: 15px;margin-left:-7px;margin-top: 8px;">Posted By:{{item1.studentId}} at {{item1.postedDate | date : 'short'}}</p>
+                                    <p ng-hide="true">{{item1.questionId}}</p>
+                                </div>
+                                <form class="row" ng-show="hiddenAnsPost">
+                                    <textarea class="form-control col-sm-6" placeholder="Write your answer here, maximum 1500 characters allowed." style="margin-right: 20px;width: 80%;"
+                                        maxlength="1500" minlength="1" data-error="Write something before posting" ng-model="Answers.contentAns"></textarea>
+
+                                    <button class="btn btn-primary btn-block" style="width: 10%;margin-top: 16px;" type="submit" ng-click="answerQuestion($event)">Post</button>
+                                    <dr>
+
+                                </form>
                             </div>
                             <br>
+                            <div class="list-group-item" ng-show="hiddenAnswers" data-ng-repeat="item2 in answeredQuestionsAnswers | orderBy:'answerId':true" style="background-color: lavender;"
+                                ng-if="item1.questionId==item2.questionId">
+                                <blockquote style="border-left: 5px solid cornflowerblue;font-size: 15px;"><span class="glyphicon glyphicon-ok" style="font-size: 13px;"></span> {{item2.contentAns}}</blockquote>
+                                <p style="font-size: 13px;margin-top: -7px;margin-bottom: -19px;color:blue"> Answered By:{{item2.mentorId}} at {{item2.postedDate | date : 'short'}}</p>
+                                <p ng-hide="true">{{item2.questionId}}</p>
+                                <p ng-hide="true">{{item2.answerId}}</p>
+                                <br>
+                            </div>
                         </div>
-
+                        <button ng-click="backToTop2()" class="btn btn-primary btn-block" style="font-size:15px;width: 15%;margin-top: inherit;margin-left: auto;margin-right: -35px;"><i class="glyphicon glyphicon-arrow-up"> Top</i></button>
                     </div>
-
-                </div>
-
-            </div>
-            <div class="modal fade" id="myAnswer" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Write Answer</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" aria-rowcount="4" ng-model="Answers.answerText">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" ng-click="answerQuestion()">Done</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-
-            <!-- second modal -->
-            <div class="modal fade" id="firstAnswer" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Write Answer</h4>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" aria-rowcount="4" ng-model="Answers.answerText">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" ng-click="firstAnswerQuestion()">Done</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
         </section>
     </div>
 

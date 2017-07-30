@@ -140,6 +140,19 @@ app.controller("adminHome", function ($scope, $location, $cookies, $http) {
 
     };
 
+
+    $scope.goToMarks = function(){
+
+        $location.path("/adminStudentsMarks");
+
+    };
+
+    $scope.goToUpload = function(){
+
+        $location.path("/adminExcelUpload");
+
+    };
+
     $scope.goHome = function () {
         $location.path("/adminHome");
     };

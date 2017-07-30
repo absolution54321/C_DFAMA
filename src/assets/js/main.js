@@ -109,6 +109,11 @@ app.config(function ($routeProvider) {
         "controller": "adminExcelUpload"
     });
 
+    $routeProvider.when("/adminStudentsMarks", {
+        "templateUrl": "./src/views/adminStudentsMarks.html",
+        "controller": "adminStudentsMarks"
+    });
+
 });
 
 app.run(function ($location, $rootScope, $cookies, $http, $window) {

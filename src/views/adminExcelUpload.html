@@ -85,6 +85,40 @@
                     </div>
                 </div>
 
+                <div class="jumbotron form-group">
+                    <div>
+                        <form action="http://localhost:3008/uploadNewMentor" enctype="multipart/form-data" method="post">
+                        <label>Upload Form for Mentor</label>
+                        <input type="file" name="file" ng-model="fileName.file" ng-blur="validate_fileupload($event)">
+                        <label style="color:red;" ng-hide="error">Please put .xlsx format</label>
+                        <input type="submit" ng-show="errorTwo" class="btn btn-sm btn-primary" style="margin-top: 1%">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="jumbotron form-group">
+                    <div>
+                        <form action="http://localhost:3008/uploadNewMentorDetails" enctype="multipart/form-data" method="post">
+                        <label>Upload Form for Mentor Details</label>
+                        <input type="file" name="file" ng-model="fileName.file" ng-blur="validate_fileupload($event)">
+                        <label style="color:red;" ng-hide="error">Please put .xlsx format</label>
+                        <input type="submit" ng-show="errorTwo" class="btn btn-sm btn-primary" style="margin-top: 1%">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="jumbotron form-group">
+                    <div>
+                        <form action="http://localhost:3008/uploadUpdateMentorDetails" enctype="multipart/form-data" method="post">
+                        <label>Upload Form for Updating Mentor Details</label>
+                        <input type="file" name="file" ng-model="fileName.file" ng-blur="validate_fileupload($event)">
+                        <label style="color:red;" ng-hide="error">Please put .xlsx format</label>
+                        <input type="submit" ng-show="errorTwo" class="btn btn-sm btn-primary" style="margin-top: 1%">
+                        </form>
+                    </div>
+                </div>
+
+
             </div>
 
 
