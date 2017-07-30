@@ -104,6 +104,11 @@ app.config(function ($routeProvider) {
         "controller": "adminForum"
     });
 
+    $routeProvider.when("/adminExcelUpload", {
+        "templateUrl": "./src/views/adminExcelUpload.html",
+        "controller": "adminExcelUpload"
+    });
+
 });
 
 app.run(function ($location, $rootScope, $cookies, $http, $window) {

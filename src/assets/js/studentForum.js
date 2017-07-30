@@ -40,7 +40,6 @@ $scope.backToTop2 = function() {
             "studentid": $cookies.getObject('studentId'),
             "postedDate":new Date()
         }
-        var url = "http://localhost:3010/forum/postQuestion";
 
         var hpromise = $http.post(url, $scope.jsonObj);
         hpromise.then(function (response) {
@@ -64,32 +63,32 @@ $scope.backToTop2 = function() {
     };
 
     $scope.answerQuestion = function () {
-        if($scope.Answers.answerText){
-        $scope.jsonObj = {
-            "qid": $scope.Answers.id,
-            "answer": $scope.Answers.answerText,
-            "mentorId": $cookies.get('mentorId'),
-            "postedDate":new Date()
+        if ($scope.Answers.answerText) {
+            $scope.jsonObj = {
+                "qid": $scope.Answers.id,
+                "answer": $scope.Answers.answerText,
+                "mentorId": $cookies.get('mentorId'),
+                "postedDate": new Date()
+            }
+
+            console.log($scope.Answers.answerText);
+
+            var url = "http://localhost:3010/forum/furtherAnswers"
+
+            var hpromise = $http.post(url, $scope.jsonObj);
+
+            hpromise.then(function (response) {
+
+                console.log(response.data);
+
+            }).catch(function (err) {
+                console.log(err);
+            });
+            $scope.answeredQuestionsAnswers.push($scope.Answers);
         }
-
-        console.log($scope.Answers.answerText);
-
-        var url = "http://localhost:3010/forum/furtherAnswers"
-
-        var hpromise = $http.post(url, $scope.jsonObj);
-
-        hpromise.then(function (response) {
-
-            console.log(response.data);
-
-        }).catch(function (err) {
-            console.log(err);
-        });
-        $scope.answeredQuestionsAnswers.push($scope.Answers);
+        else {
+            alert("Write something before posting");
         }
-    else{
-        alert("Write something before posting");
-    }
 
     };
 
@@ -108,8 +107,8 @@ $scope.backToTop2 = function() {
 
     $scope.forumInit = function () {
         //for fetching unanswered questions
-        $scope.unansweredQuestions.length=0;
-        $scope.answeredQuestionsAnswers.length=0;
+        $scope.unansweredQuestions.length = 0;
+        $scope.answeredQuestionsAnswers.length = 0;
         var url = "http://localhost:3010/forum/forumInitA";
         var hpromise = $http.get(url);
 

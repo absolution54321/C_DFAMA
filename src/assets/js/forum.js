@@ -5,56 +5,56 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
 
     $scope.goToRespHomePage = function () {
         var type = $cookies.getObject('type');
-        if(type==1)
+        if (type == 1)
             $location.path("/adminHome");
-        if(type==2)
+        if (type == 2)
             $location.path("/studentHome");
-        if(type==3)
+        if (type == 3)
             $location.path("/mentorHome");
     };
 
-    $scope.currentQuestion={};
-    $scope.unansweredQuestions=[];
-    $scope.answeredQuestions=[];
-    $scope.Answers=[];
-    $scope.comments=[];
+    $scope.currentQuestion = {};
+    $scope.unansweredQuestions = [];
+    $scope.answeredQuestions = [];
+    $scope.Answers = [];
+    $scope.comments = [];
 
-    $scope.postQuestion = function(){
+    $scope.postQuestion = function () {
         var url = "http://localhost:3010/forum/postQuestion";
-        var hpromise = $http.post(url,$scope.currentQuestion);
-        hpromise.then(function(response){
+        var hpromise = $http.post(url, $scope.currentQuestion);
+        hpromise.then(function (response) {
             console.log(response);
-            $scope.currentQuestion.question="";
-        }).catch(function(err){
+            $scope.currentQuestion.question = "";
+        }).catch(function (err) {
             console.log(err);
         });
     };
-    
-    $scope.answerQuestion = function(){
+
+    $scope.answerQuestion = function () {
         $scope.state = !$scope.state;
     };
     $scope.state = true;
-    $scope.showAnswers = function(){
-       $scope.state = $scope.state === false ? true : false;
+    $scope.showAnswers = function () {
+        $scope.state = $scope.state === false ? true : false;
     };
 
-    $scope.addToAnswers = function(){
-
-    };
-
-    $scope.postComment = function(){
+    $scope.addToAnswers = function () {
 
     };
 
-    $scope.addToComments = function(){
+    $scope.postComment = function () {
 
     };
 
-    $scope.searchTagwise = function(){
+    $scope.addToComments = function () {
 
     };
 
-    $scope.searchDatewise = function(){
+    $scope.searchTagwise = function () {
+
+    };
+
+    $scope.searchDatewise = function () {
 
     };
 
@@ -65,7 +65,7 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
         $location.path("/");
     };
 
-    $scope.forumInit = function(){
+    $scope.forumInit = function () {
         //for fetching unanswered questions
 
         var url = "http://localhost:3010/forum/forumInitA";
@@ -74,14 +74,14 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
         hpromise.then(function (response) {
             console.log(response);
 
-            if (response.data.length>0) {
+            if (response.data.length > 0) {
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.unansweredQuestions.push({
-                        "question":response.data[i].questionText,
-                        "tag":response.data[i].tag,
-                        "postedBy":response.data[i].studentId,
-                        "postedDate":response.data[i].postedDateQue
-                    });   
+                        "question": response.data[i].questionText,
+                        "tag": response.data[i].tag,
+                        "postedBy": response.data[i].studentId,
+                        "postedDate": response.data[i].postedDateQue
+                    });
                 }
             }
         }).catch(function (err) {
@@ -89,20 +89,20 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
         });
 
         //for fetching answered questions
-            //for fetching Question of answered question
+        //for fetching Question of answered question
         var url = "http://localhost:3010/forum/forumInitB";
         var hpromise = $http.get(url);
 
         hpromise.then(function (response) {
             console.log(response);
-                if (response.data.length>0) {
+            if (response.data.length > 0) {
                 for (var i = 0; i < response.data.length; i++) {
                     $scope.answeredQuestions.push({
-                        "question":response.data[i].questionText,
-                        "tag":response.data[i].tag,
-                        "postedBy":response.data[i].studentId,
-                        "postedDate":response.data[i].postedDateQue
-                    }); 
+                        "question": response.data[i].questionText,
+                        "tag": response.data[i].tag,
+                        "postedBy": response.data[i].studentId,
+                        "postedDate": response.data[i].postedDateQue
+                    });
                 }
             }
         }).catch(function (err) {
@@ -137,7 +137,7 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
             console.log(err);
         });
 
-         //for fetching Answers of answered question
+        //for fetching Answers of answered question
 
         var url = "http://localhost:3010/forum/forumInitD";
         var hpromise = $http.get(url);
@@ -158,7 +158,7 @@ app.controller("forum", function ($scope, $window, $compile, $filter, $http, $co
         }).catch(function (err) {
             console.log(err);
         });
-        
+
     };
 
     // $scope.getforumUserName = function(){

@@ -48,7 +48,7 @@ app.controller("studentFeedbackForm", function ($scope, $location, $http, $cooki
   };
 
   $scope.submitFeedback = function () {
-     $scope.inputData = {
+    $scope.inputData = {
       "sid": $scope.feedbackData.studentId,
       "mid": mentorid,
       "one": $scope.feedbackData.one,
