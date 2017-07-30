@@ -1,7 +1,7 @@
 var app = angular.module("app");
 
 
-app.controller("adminForum", function ($scope, $window, $compile, $filter, $http, $cookies, $location) {
+app.controller("adminForum", function ($scope,$anchorScroll,$window, $compile, $filter, $http, $cookies, $location) {
 
     $scope.goToRespHomePage = function () {
         var type = $cookies.getObject('type');
@@ -19,143 +19,163 @@ app.controller("adminForum", function ($scope, $window, $compile, $filter, $http
     $scope.Answers = {};
     $scope.comments = [];
     $scope.answeredQuestionsAnswers = [];
-    $scope.username = $cookies.get('studentUserName');
+    $scope.username = $cookies.get('mentorUserName');
 
-    $scope.postQuestion = function () {
-
-        $scope.jsonObj = {
-            "question": $scope.currentQuestion.question,
-            "tag": $scope.currentQuestion.tag,
-            "studentid": $cookies.getObject('studentId')
-        };
-
-        var url = "http://localhost:3010/forum/postQuestion";
-
-        var hpromise = $http.post(url, $scope.jsonObj);
-        hpromise.then(function (response) {
-            console.log(response);
-            $scope.currentQuestion.question = "";
-        }).catch(function (err) {
-            console.log(err);
-        });
+    $scope.backToTop = function() {
+    $location.hash('scrollToDivID');
+    $anchorScroll();
+    };
+$scope.backToTop2 = function() {
+    $location.hash('scrollToDivID2');
+    $anchorScroll();
     };
 
-    $scope.answerQuestion = function () {
-
+    $scope.answerQuestion = function ($event) {
+        $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev().children().last().html();
+        console.log($scope.Answers.id1);
+        console.log("----------------");
+        if($scope.Answers.contentAns){
+            $scope.Answers.mentorId=$cookies.get('mentorId');
+            $scope.Answers.postedDate=new Date();
         $scope.jsonObj = {
-            "qid": $scope.Answers.id,
-            "answer": $scope.Answers.answerText,
-            "mentorId": $cookies.get('mentorId')
+            "qid": $scope.Answers.questionId,
+            "answer": $scope.Answers.contentAns,
+            "mentorId": $scope.Answers.mentorId,
+            "postedDate":$scope.Answers.postedDate
         }
 
-        console.log($scope.Answers.answerText);
+        console.log($scope.Answers.id1);
 
         var url = "http://localhost:3010/forum/furtherAnswers"
 
         var hpromise = $http.post(url, $scope.jsonObj);
 
         hpromise.then(function (response) {
+            if (response.data.affectedRows > 0) {
 
-            console.log(response.data);
+                console.log(response.data);
+                alert("Your answer is posted successfully...");
+            }
+            else alert("Some error occurred to post answer");
 
         }).catch(function (err) {
             console.log(err);
+             
         });
-
+        $scope.answeredQuestionsAnswers.push($scope.Answers);
+        $scope.forumInit();
+        }
+    else{
+        alert("Write something before posting");
+    }
 
     };
+$scope.hiddenDiv = false;
+$scope.hiddenAnswers = false;
+$scope.hiddenAnsPost = false;
 
-    $scope.saveEvent = function ($event) {
-
-        $scope.Answers.id = angular.element($event.currentTarget).parent().children().last().html();
-
-        console.log($scope.Answers.id);
+    $scope.firstAnswerQuestion = function ($event) {
+$scope.Answers.questionId = angular.element($event.currentTarget).parent().prev().children().last().html();
+        console.log($scope.Answers.id1);
         console.log("----------------");
+        if($scope.Answers.contentAns.length>0 && $scope.Answers.contentAns.length<1500){
+            $scope.Answers.mentorId=$cookies.get('mentorId');
+            $scope.Answers.postedDate=new Date();
+        $scope.jsonObj = {
+            "qId": $scope.Answers.questionId,
+            "qCont": $scope.Answers.contentAns,
+            "mentorId": $scope.Answers.mentorId,
+            "postedDate":$scope.Answers.postedDate
+        };
 
+        var url = "http://localhost:3010/forum/firstAnswer";
+        var hpromise = $http.post(url, $scope.jsonObj);
+
+        hpromise.then(function (response) {
+            console.log(response);
+            if (response.data.affectedRows > 0) {
+                $scope.forumInit();
+                console.log(response.data);
+                alert("Your answer is posted successfully...");
+                $scope.answeredQuestionsAnswers.push($scope.Answers);
+         $scope.forumInit();
+            }
+
+        }).catch(function (err) {
+            console.log(err);
+            alert("Some error occurred to post answer");
+        });
+        $scope.forumInit();
+        }
+    else{
+        alert("You have exceeded character limit...");
+    };
+   
     };
     // var inputData ={};
     $scope.hideid = true;
     $scope.hide = true;
     $scope.show = true;
 
-    $scope.showAnswers = function ($event, item) {
-        var id = angular.element($event.currentTarget).parent().children().last().html();
-        // $scope.hide = $scope.hide === false ? true : false;
-        item.hide = !item.hide;
-        $scope.Answers.length = 0;
-        //for fetching Answers of answered question
-        $scope.inputData = { "quesId": id };
-        var url = "http://localhost:3010/forum/getAnswers";
-        var hpromise = $http.post(url, $scope.inputData);
+    $scope.searchTagwise = function ($event) {
+        $scope.search.tag = angular.element($event.currentTarget).parent().parent().prev().val();
+        $scope.answeredQuestions.length=0;
+        $scope.unansweredQuestions.length=0;
+        $scope.answeredQuestionsAnswers.length=0;
+
+        //for fetching unanswered questions
+        $scope.jsonObj = {
+            "tag": $scope.search.tag
+        };
+        
+        if($scope.search.tag){
+            console.log($scope.search.tag);
+            
+            var url = "http://localhost:3010/forum/searchTagA";
+
+           var hpromise = $http.post(url, $scope.jsonObj);
 
         hpromise.then(function (response) {
             console.log(response);
             if (response.data.length > 0) {
-                for (var i = 0; i < response.data.length; i++) {
-                    $scope.Answers.push({
-                        "answer": response.data[i].answerText,
-                        "ansId": response.data[i].questionId,
-                        "answeredBy": response.data[i].mentorId,
-                        "answeredTime": response.data[i].postedDateAns
-                    });
-
-                }
+                 $scope.unansweredQuestions = response.data;
+                console.log(response.data);
             }
         }).catch(function (err) {
             console.log(err);
         });
-    };
 
-    $scope.addToAnswers = function () {
+        var url = "http://localhost:3010/forum/searchTagB";
 
-    };
-
-    $scope.showComments = function ($event, item) {
-        var aid = angular.element($event.currentTarget).parent().children().last().html();
-        // $scope.show = $scope.show === false ? true : false;
-        item.show = !item.show;
-        $scope.comments.length = 0;
-        //for fetching comments of answers
-        $scope.inputAnsId = { "ansId": aid };
-        var url = "http://localhost:3010/forum/getComments";
-        var hpromise = $http.post(url, $scope.inputAnsId);
+           var hpromise = $http.post(url, $scope.jsonObj);
 
         hpromise.then(function (response) {
             console.log(response);
             if (response.data.length > 0) {
-                for (var i = 0; i < response.data.length; i++) {
-
-                    if (response.data[i].mentorId != null) {
-                        commentBy = response.data[i].mentorId;
-                    }
-                    else
-                        commentBy = response.data[i].studentId;
-                    $scope.comments.push({
-                        "comment": response.data[i].commentText,
-                        "commentedBy": commentBy,
-                        "ansId": response.data[i].answerId,
-                        "commentedTime": response.data[i].postedDateCmt
-                    });
-                }
+                 $scope.answeredQuestions = response.data;
+                console.log(response.data);
             }
-
         }).catch(function (err) {
             console.log(err);
         });
 
+        var url = "http://localhost:3010/forum/searchTagC";
+        var hpromise = $http.post(url, $scope.jsonObj);
 
-    };
+        hpromise.then(function (response) {
+            console.log(response);
+            if (response.data.length > 0) {
+                $scope.answeredQuestionsAnswers = response.data;
 
-    $scope.addToComments = function () {
-
-    };
-
-    $scope.searchTagwise = function () {
-
-    };
-
-    $scope.searchDatewise = function () {
-
+                console.log(response.data);
+            }
+        }).catch(function (err) {
+            console.log(err);
+        });
+        }
+        else {
+            alert("select tag before searching");
+        }
     };
 
     $scope.performLogOut = function () {
@@ -197,7 +217,6 @@ app.controller("adminForum", function ($scope, $window, $compile, $filter, $http
             console.log(err);
         });
 
-
         //for fetching answered questions
         //for fetching Question of answered question
         var url = "http://localhost:3010/forum/forumInitC";
@@ -209,54 +228,12 @@ app.controller("adminForum", function ($scope, $window, $compile, $filter, $http
                 $scope.answeredQuestionsAnswers = response.data;
 
                 console.log(response.data);
-                // for (var i = 0; i < response.data.length; i++) {
-                // $scope.answeredQuestions.push({
-                //     "question": response.data[i].questionText,
-                //     "tag": response.data[i].tag,
-                //     "postedBy": response.data[i].studentId,
-                //     "postedDate": response.data[i].postedDateQue,
-                //     "qid": response.data[i].questionId
-                // });
-
-
-                // }
             }
         }).catch(function (err) {
             console.log(err);
         });
     };
-    // $scope.getforumUserName = function(){
-    //     var type = $cookies.getObject('type');
-    //     if(type==1)
-    //         $scope.username=$cookies.getObject('adminUserName');
-    //     if(type==2)
-    //         $scope.username=$cookies.getObject('studentUserName');
-    //     if(type==3)
-    //         $scope.username=$cookies.getObject('mentorUserName');
-    // };
 
-    $scope.firstAnswerQuestion = function () {
-
-        $scope.jsonObj = {
-            "qId": $scope.Answers.id,
-            "qCont": $scope.Answers.answerText,
-            "mentorId": $cookies.get('mentorId')
-        };
-
-        var url = "http://localhost:3010/forum/firstAnswer";
-        var hpromise = $http.post(url, $scope.jsonObj);
-
-        hpromise.then(function (response) {
-            console.log(response);
-            if (response.data.length > 0) {
-
-                console.log(response.data);
-            }
-
-        }).catch(function (err) {
-            console.log(err);
-        });
-
-    };
+    
 
 }); 
