@@ -24,8 +24,8 @@ app.controller("mentorAgenda", function ($scope, $window, $compile, $filter, $ht
     };
 
     $scope.goToForum = function () {
-
-        $location.path("//mentorForum");
+        $window.location.href = "http://localhost:3000/#!/mentorForum";
+        
     };
 
 
