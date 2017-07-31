@@ -24,6 +24,17 @@ app.controller("mentorDetails", function ($scope, $http, $location, $cookies) {
     $scope.goToMentorDetails = function () {
         $location.path("/mentorDetails");
     };
+    $scope.goToMarks = function(){
+
+        $location.path("/adminStudentsMarks");
+
+    };
+
+    $scope.goToUpload = function(){
+
+        $location.path("/adminExcelUpload");
+
+    };
 
     $scope.loadAllMentorsDetailsForAdminLogin = function () {
         var url = "http://localhost:3010/admin/mdetails/";

@@ -10,64 +10,40 @@
             </ul>
         </div>
     </nav>
+    
     <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
-        <ul class="nav nav-list accordion">
 
-            <li class="nav-header">
-                <div class="link" ng-click="go();"><i class="	glyphicon glyphicon-home"></i>Home</div>
-            </li>
+    <ul class="nav nav-list accordion">
 
+      <li class="nav-header">
+        <div class="link" ng-click="go();"><i class="	glyphicon glyphicon-home"></i>Home</div>
+      </li>
 
-            <li class="nav-header">
-                <div class="link" ng-click="goToForum();"><i class="fa fa-lg fa-facebook"></i>Forum</i>
-                </div>
+      <li class="nav-header">
+        <div class="link" ng-click="goToForum();"><i class="fa fa-lg fa-facebook"></i>Forum</div>
 
-            </li>
+      </li>
 
-            <li class="nav-header">
-                <div class="link" ng-click="goToMentorDetails();"><i class="fa fa-lg fa-users"></i>Mentor</div>
+      <li class="nav-header">
+        <div class="link" ng-click="goToMentorDetails();"><i class="fa fa-lg fa-users"></i>Mentor</div>
 
-            </li>
+      </li>
 
-            <li class="nav-header">
-                <div class="link" id="Tid" ng-click="toggleMarks();"><i class="fa fa-cloud"></i> Marks <i class="fa fa-chevron-down"></i></div>
-                <ul ng-hide="custom" class="dropdown-toggle">
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=1
-                            ng-click="listItemClicked($event)">OOPs with CPP<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=2
-                            ng-click="listItemClicked($event)">Algorithm And Datastructure<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=3
-                            ng-click="listItemClicked($event)">Operating System Concepts<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=4
-                            ng-click="listItemClicked($event)">J2SE<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=5
-                            ng-click="listItemClicked($event)">J2EE<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=6
-                            ng-click="listItemClicked($event)">Advanced Web Programming<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=7
-                            ng-click="listItemClicked($event)">Database Technologies<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=8
-                            ng-click="listItemClicked($event)">S/w Application Tools & Techniques<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=9
-                            ng-click="listItemClicked($event)">Microsoft .NET<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                </ul>
-            </li>
+      <li class="nav-header">
+        <div class="link" ng-click="goToUpload();"><i class="fa fa-lg fa-map-marker"></i>Upload</div>
+      </li>
 
-
-            <li class="nav-header">
-                <div class="link" ng-click="toggleData1();"><i class="fa fa-lg fa-map-marker"></i>Modify<i class="fa fa-chevron-down"></i></div>
-                <ul class="dropdown-toggle" ng-hide="custom1">
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=11
-                            ng-click="addModifylistItemClicked($event)">Add data<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                    <li><button type="button" class="btn  btn-block btn-xs btn-default" style="background-color:lightgrey;" id=22
-                            ng-click="addModifylistItemClicked($event)">Modify data<span class="glyphicon glyphicon-chevron-right"></span></button></li>
-                </ul>
-            </li>
+       <li class="nav-header">
+        <div class="link" ng-click="goToMarks();"><i class="fa fa-lg fa-map-marker"></i>Marks</div>
+      </li>
+      
 
 
 
-        </ul>
-    </aside>
+
+    </ul>
+  </aside>
+
 
     <!--Body content-->
     <div class="content">
