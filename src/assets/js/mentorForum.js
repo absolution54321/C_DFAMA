@@ -64,11 +64,7 @@ $scope.backToTop2 = function() {
         });
         // $scope.forumInit();
         $scope.answeredQuestionsAnswers.push($scope.Answers);
-<<<<<<< HEAD
         // $scope.forumInit();
-=======
-        $scope.forumInit();
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
         }
     else{
         alert("Write something before posting");
@@ -133,11 +129,7 @@ $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev(
             "tag": $scope.search.tag
         };
         
-<<<<<<< HEAD
         if($scope.search.tag =! ""){
-=======
-        if($scope.search.tag){
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
             console.log($scope.search.tag);
             
             var url = "http://localhost:3010/forum/searchTagA";
@@ -153,15 +145,9 @@ $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev(
         }).catch(function (err) {
             console.log(err);
         });
-<<<<<<< HEAD
 
         var url = "http://localhost:3010/forum/searchTagB";
 
-=======
-
-        var url = "http://localhost:3010/forum/searchTagB";
-
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
            var hpromise = $http.post(url, $scope.jsonObj);
 
         hpromise.then(function (response) {
@@ -189,11 +175,7 @@ $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev(
         });
         }
         else {
-<<<<<<< HEAD
             $scope.forumInit();
-=======
-            alert("select tag before searching");
->>>>>>> b4e7b29f79a86d7e1059edfffdc6612c3fd6ad2b
         }
     };
 
