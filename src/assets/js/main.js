@@ -3,13 +3,17 @@ var app = angular.module("app", ["ngRoute", "ngCookies", "zingchart-angularjs"])
 
 app.config(function ($routeProvider) {
 
-    $routeProvider.otherwise("/");
+    $routeProvider.otherwise("/errorPage");
 
     $routeProvider.when("/", {
         "templateUrl": "./src/views/login.html",
         "controller": "login"
     });
 
+    $routeProvider.when("/errorPage", {
+        "templateUrl": "./src/views/errorPage.html",
+        "controller": "errorPage"
+    });
 
     //MENTOR RELATED ROUTES
     $routeProvider.when("/mentorHome", {
@@ -131,7 +135,8 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
             || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
             || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
             || $window.location.href == 'http://localhost:3000/#!/adminModifyDetails'
-            || $window.location.href == 'http://localhost:3000/#!/adminUploadExcelSheet') {
+            || $window.location.href == 'http://localhost:3000/#!/adminExcelUpload'
+            || $window.location.href == 'http://localhost:3000/#!/adminStudentsMarks') {
             if (adminId == undefined) {
                 if (type == 2) {
                     $location.path("/studentHome");
@@ -180,6 +185,18 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
         if (adminId == undefined && studentId == undefined && mentorId == undefined) {
             $location.path("/");
         }
+
+        // if(adminId != undefined){
+        //     $location.path("/adminHome");
+        // }
+
+        // if(studentId != undefined){
+        //     $location.path("/studentHome");
+        // }
+
+        // if(mentorId != undefined){
+        //     $location.path("/mentorHome");
+        // }
 
         if ($window.location.href == 'http://localhost:3000/'
             || $window.location.href == 'http://localhost:3000/#!/'
