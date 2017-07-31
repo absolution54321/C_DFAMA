@@ -63,31 +63,44 @@
       <section class="content-inner" style="background: azure;">
 
         <div class="jumbotron">
+          <div ng-hide="msg" style=" float: right; margin-right: 30%; color:green; border: 2px solid; ">
+                      <h3>Feedback Submitted</h3>
+                  </div>
+          <div ng-hide="msgn" style=" float: right; margin-right: 30%; color:red; border: 2px solid; ">
+                      <h3>Feedback Failed</h3>
+                  </div>          
           <div class="container">
             <h2>MENTOR FEEDBACK FORM</h2>
             <div class="card-content">
-              <h4 class="card-title">Stacked Form</h4>
-              <form method="#" action="#">
+              <form  ng-submit="submitFeedback()">
+                
                 <div class="form-group label-floating is-empty">
-                  <label class="control-label">Roll no</label>
-                  <input type="text" class="form" required ng-model="feedbackData.studentId">
+                  <label class="control-label">Student Id:</label>
+                  <input type="text" class="form" required minlength="1" maxlength="12" ng-model="feedbackData.studentId">
                   <span class="material-input"></span>
                 </div>
+
+                <div class="form-group label-floating is-empty">
+                  <label class="control-label">Mentor Id:</label>
+                  <input type="text" class="form" required minlength="1" maxlength="12" ng-model="feedbackData.mentorId">
+                  <span class="material-input"></span>
+                </div>
+                
 
                 <div class="form-group label-floating is-empty">
                   <label class="control-label">Interaction with students</label>
                   <br>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio1" value="4" ng-model="feedbackData.one">Excellent
+                    <input type="radio" name="optradio1" value="4" ng-model="feedbackData.one" required>Excellent
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio1" value="3" ng-model="feedbackData.one">Good
+                    <input type="radio" name="optradio1" value="3" ng-model="feedbackData.one" required>Good
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio1" value="2" ng-model="feedbackData.one">Average
+                    <input type="radio" name="optradio1" value="2" ng-model="feedbackData.one"required>Average
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio1" value="1" ng-model="feedbackData.one">Poor
+                    <input type="radio" name="optradio1" value="1" ng-model="feedbackData.one" required>Poor
                   </div>
                   <span class="material-input"></span>
                 </div>
@@ -97,16 +110,16 @@
                   <label class="control-label">Pace of Teaching</label>
                   <br>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio2" value="4" ng-model="feedbackData.two">Excellent
+                    <input type="radio" name="optradio2" value="4" ng-model="feedbackData.two" required>Excellent
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio2" value="3" ng-model="feedbackData.two">Good
+                    <input type="radio" name="optradio2" value="3" ng-model="feedbackData.two" required>Good
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio2" value="2" ng-model="feedbackData.two">Average
+                    <input type="radio" name="optradio2" value="2" ng-model="feedbackData.two" required>Average
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio2" value="1" ng-model="feedbackData.two">Poor
+                    <input type="radio" name="optradio2" value="1" ng-model="feedbackData.two" required>Poor
                   </div>
                   <span class="material-input"></span>
                 </div>
@@ -116,16 +129,16 @@
                   <label class="control-label">Timely Response</label>
                   <br>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio3" value="4" ng-model="feedbackData.three">Excellent
+                    <input type="radio" name="optradio3" value="4" ng-model="feedbackData.three" required>Excellent
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio3" value="3" ng-model="feedbackData.three">Good
+                    <input type="radio" name="optradio3" value="3" ng-model="feedbackData.three" required>Good
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio3" value="2" ng-model="feedbackData.three">Average
+                    <input type="radio" name="optradio3" value="2" ng-model="feedbackData.three" required>Average
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio3" value="1" ng-model="feedbackData.three">Poor
+                    <input type="radio" name="optradio3" value="1" ng-model="feedbackData.three" required>Poor
                   </div>
                   <span class="material-input"></span>
                 </div>
@@ -134,16 +147,16 @@
                   <label class="control-label">No. of sessions</label>
                   <br>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio4" value="4" ng-model="feedbackData.four">Excellent
+                    <input type="radio" name="optradio4" value="4" ng-model="feedbackData.four" required>Excellent
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio4" value="3" ng-model="feedbackData.four">Good
+                    <input type="radio" name="optradio4" value="3" ng-model="feedbackData.four" required>Good
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio4" value="2" ng-model="feedbackData.four">Average
+                    <input type="radio" name="optradio4" value="2" ng-model="feedbackData.four" required>Average
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio4" value="1" ng-model="feedbackData.four">Poor
+                    <input type="radio" name="optradio4" value="1" ng-model="feedbackData.four" required>Poor
                   </div>
                   <span class="material-input"></span>
                 </div>
@@ -152,16 +165,16 @@
                   <label class="control-label">Communication</label>
                   <br>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio5" value="4" ng-model="feedbackData.five">Excellent
+                    <input type="radio" name="optradio5" value="4" ng-model="feedbackData.five" required>Excellent
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio5" value="3" ng-model="feedbackData.five">Good
+                    <input type="radio" name="optradio5" value="3" ng-model="feedbackData.five" required>Good
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio5" value="2" ng-model="feedbackData.five">Average
+                    <input type="radio" name="optradio5" value="2" ng-model="feedbackData.five" required>Average
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio5" value="1" ng-model="feedbackData.five">Poor
+                    <input type="radio" name="optradio5" value="1" ng-model="feedbackData.five" required>Poor
                   </div>
                   <span class="material-input"></span>
                 </div>
@@ -170,16 +183,16 @@
                   <label class="control-label">Overall Experience</label>
                   <br>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio6" value="4" ng-model="feedbackData.six">Excellent
+                    <input type="radio" name="optradio6" value="4" ng-model="feedbackData.six" required>Excellent
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio6" value="3" ng-model="feedbackData.six">Good
+                    <input type="radio" name="optradio6" value="3" ng-model="feedbackData.six" required>Good
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio6" value="2" ng-model="feedbackData.six">Average
+                    <input type="radio" name="optradio6" value="2" ng-model="feedbackData.six" required>Average
                   </div>
                   <div class="radio-inline">
-                    <input type="radio" name="optradio6" value="1" ng-model="feedbackData.six">Poor
+                    <input type="radio" name="optradio6" value="1" ng-model="feedbackData.six" required>Poor
                   </div>
                   <span class="material-input"></span>
                 </div>
@@ -187,14 +200,14 @@
                 <div class="form-group">
                   <label for="comment">Your Reviews:</label>
                   <br>
-                  <textarea class="form-control" rows="5" id="comment" ng-model="feedbackData.comment" required></textarea>
+                  <textarea class="form-control" rows="5" id="comment" ng-model="feedbackData.comment" required minlength="5" maxlength="50"></textarea>
                 </div>
 
 
 
 
 
-                <button type="submit" class="btn btn-fill btn-rose" ng-click="submitFeedback()">Submit</button>
+                <input type="submit" class="btn btn-fill btn-rose" >
               </form>
             </div>
           </div>

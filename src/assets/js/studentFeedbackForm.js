@@ -5,7 +5,13 @@ app.controller("studentFeedbackForm", function ($scope, $location, $http, $cooki
 
   $scope.feedbackData = {};
 
+  $scope.required=true;
+
   $scope.inputData = {};
+
+  $scope.msg = true;
+
+  $scope.msgn = true;
 
   var mentorid;
   $scope.getMentorId = function () {
@@ -50,7 +56,7 @@ app.controller("studentFeedbackForm", function ($scope, $location, $http, $cooki
   $scope.submitFeedback = function () {
     $scope.inputData = {
       "sid": $scope.feedbackData.studentId,
-      "mid": mentorid,
+      "mid": $scope.feedbackData.mentorId,
       "one": $scope.feedbackData.one,
       "two": $scope.feedbackData.two,
       "three": $scope.feedbackData.three,
@@ -65,12 +71,14 @@ app.controller("studentFeedbackForm", function ($scope, $location, $http, $cooki
 
     hpromise.then(function (response) {
       console.log(response);
-      alert("Feedback added successfully");
-      $location.path("/studentHome");
+      if(response.data.affectedRows >0){
+        $scope.msg = false;
+      }
+    else{
+      $scope.msgn = false;
+    }
     }).catch(function (err) {
       console.log(err);
-      alert("There is Some problem to add Feedback, try after some time");
-      $location.path("/studentHome");
     });
   }
 });

@@ -46,80 +46,78 @@
     <div class="content">
         <section class="content-inner container" style="background: azure;">
             <div class="jumbotron" ng-init="mentorInit()">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">MentorID:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label  col-sm-2" id="mentorId" ng-model="mentorData.id">{{mentorData.id}}</label>
-                        </div>
-                    </div>
+                  <div class="jumbotron">
+                <div class="bs-example" ng-init="studentInit()" style="border: 2px solid blue; position: relative;top: 10%; width:80%;left:10%">
+                    <table class="table table-hover" style="border:1cm">
+                        <thead>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">UserName:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="username" ng-model="mentorData.userName">{{mentorData.userName}}</label>
-                        </div>
-                    </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mentor Id:</td>
+                                <td>{{mentorData.id}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Name:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="name" ng-model="mentorData.name">{{mentorData.name}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Mentor Name</td>
+                                <td>{{mentorData.name}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Year Of Experiance:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="yoe" ng-model="mentorData.yoe">{{mentorData.yoe}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Year Of Experiance</td>
+                                <td>{{mentorData.yoe}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Contact Number:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="contact" ng-model="mentorData.contact">{{mentorData.contact}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Contact Number</td>
+                                <td>{{mentorData.contact}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Company:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="company" ng-model="mentorData.company">{{mentorData.company}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            
+                            <tr>
+                                <td>5</td>
+                                <td>Company</td>
+                                <td>{{mentorData.company}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Area Of Experiance:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="aoe" ng-model="mentorData.aoe">{{mentorData.aoe}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Area Of Expertise</td>
+                                <td>{{mentorData.aoe}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Batch:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="batch" ng-model="mentorData.batch">{{mentorData.batch}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Batch</td>
+                                <td>{{mentorData.batch}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Email:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="MentorEmail" ng-model="mentorData.email">{{mentorData.email}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Email</td>
+                                <td>{{mentorData.email}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label label-c col-sm-2">Team Number:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="MentorTeamNo" ng-model="mentorData.teamNo">{{mentorData.teamNo}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Team Id</td>
+                                <td>{{mentorData.teamNo}}</td>
 
-                </form>
+                            </tr>
+                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>
         </section>
+
+      
+
     </div>
 
 </div>
