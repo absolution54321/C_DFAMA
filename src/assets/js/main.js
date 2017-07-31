@@ -131,7 +131,8 @@ app.run(function ($location, $rootScope, $cookies, $http, $window) {
             || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
             || $window.location.href == 'http://localhost:3000/#!/adminDisplaySpecificMarks'
             || $window.location.href == 'http://localhost:3000/#!/adminModifyDetails'
-            || $window.location.href == 'http://localhost:3000/#!/adminUploadExcelSheet') {
+            || $window.location.href == 'http://localhost:3000/#!/adminExcelUpload'
+            || $window.location.href == 'http://localhost:3000/#!/adminStudentsMarks') {
             if (adminId == undefined) {
                 if (type == 2) {
                     $location.path("/studentHome");
