@@ -1,7 +1,7 @@
 <div class="wrap">
     <nav class="nav-bar navbar-inverse" role="navigation">
         <div id="top-menu" class="container-fluid active">
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">DAC Forum and Mentor Assesment</a>
             <ul class="nav navbar-nav">
                 <form id="qform" class="navbar-form pull-left" role="search">
                     <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
@@ -38,74 +38,76 @@
     <!--Body content-->
     <div class="content">
 
-        <section class="content-inner" style="width:80%">
-            <div class="bs-example" ng-init="studentMarksInit()">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>SR.NO</th>
-                            <th>Subject</th>
-                            <th>Marks</th>
-                            <th>Total Marks</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="active">
-                            <td>1</td>
-                            <td>CPP</td>
-                            <td>{{studentMarks.cpp}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="success">
-                            <td>2</td>
-                            <td>DS</td>
-                            <td>{{studentMarks.ds}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="info">
-                            <td>3</td>
-                            <td>OS</td>
-                            <td>{{studentMarks.os}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="warning">
-                            <td>4</td>
-                            <td>J2SE</td>
-                            <td>{{studentMarks.j2se}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="danger">
-                            <td>5</td>
-                            <td>AWP</td>
-                            <td>{{studentMarks.awp}}</td>
-                            <td>60</td>>
-                        </tr>
-                        <tr class="active">
-                            <td>6</td>
-                            <td>J2EE</td>
-                            <td>{{studentMarks.j2ee}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="success">
-                            <td>7</td>
-                            <td>DBT</td>
-                            <td>{{studentMarks.dbt}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="info">
-                            <td>8</td>
-                            <td>SE</td>
-                            <td>{{studentMarks.se}}</td>
-                            <td>60</td>
-                        </tr>
-                        <tr class="warning">
-                            <td>9</td>
-                            <td>.NET</td>
-                            <td>{{studentMarks.net}}</td>
-                            <td>60</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <section class="content-inner" style="width:100%">
+            <div class="jumbotron">
+                <div class="bs-example" ng-init="studentMarksInit()" style="border: 2px solid blue; position: relative;top: 10%; width:80%;left:10%">
+                    <table class="table table-hover" style="border:1cm">
+                        <thead>
+                            <tr>
+                                <th>SR.NO</th>
+                                <th>Subject</th>
+                                <th>Marks</th>
+                                <th>Total Marks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>CPP</td>
+                                <td>{{studentMarks.cpp}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>DS</td>
+                                <td>{{studentMarks.ds}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>OS</td>
+                                <td>{{studentMarks.os}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>J2SE</td>
+                                <td>{{studentMarks.j2se}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>AWP</td>
+                                <td>{{studentMarks.awp}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>J2EE</td>
+                                <td>{{studentMarks.j2ee}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>DBT</td>
+                                <td>{{studentMarks.dbt}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>SE</td>
+                                <td>{{studentMarks.se}}</td>
+                                <td>60</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>.NET</td>
+                                <td>{{studentMarks.net}}</td>
+                                <td>60</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
     </div>

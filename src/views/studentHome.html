@@ -45,109 +45,95 @@
       </a>
         </div>
         <section class="content-inner">
-            <div class="jumbotron" ng-init="studentInit()">
-                <form class="form-horizontal">
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Student Name:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentName" ng-model="studentData.name">{{studentData.name}}</label>
-                        </div>
-                    </div>
+            <div class="jumbotron">
+                <div class="bs-example" ng-init="studentInit()" style="border: 2px solid blue; position: relative;top: 10%; width:80%;left:10%">
+                    <table class="table table-hover" style="border:1cm">
+                        <thead>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Student Rank:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentRank" ng-model="studentData.rank">{{studentData.rank}}</label>
-                        </div>
-                    </div>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Student Name:</td>
+                                <td>{{studentData.name}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Address:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentAddr" ng-model="studentData.address">{{studentData.address}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Student Rank</td>
+                                <td>{{studentData.rank}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Contact Number:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentContact" ng-model="studentData.contactNo">{{studentData.contactNo}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Address</td>
+                                <td>{{studentData.address}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Date Of Birth:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentDOB" ng-model="studentData.dateofbirth">{{studentData.dateofbirth}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Contact Number</td>
+                                <td>{{studentData.contactNo}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Year Of Passing:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentYOP" ng-model="studentData.yearofpassing">{{studentData.yearofpassing}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Year Of Passing</td>
+                                <td>{{studentData.yearofpassing}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Qualification:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentQali" ng-model="studentData.qualification">{{studentData.qualification}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Qualification</td>
+                                <td>{{studentData.qualification}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Mentor Id:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentMentor" ng-model="studentData.mentorId">{{studentData.mentorId}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Mentor Id</td>
+                                <td>{{studentData.mentorId}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Student Id:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentId" ng-model="studentData.studentId">{{studentData.studentId}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Student Id</td>
+                                <td>{{studentData.studentId}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Gender:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentgender" ng-model="studentData.gender">{{studentData.gender}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>Gender</td>
+                                <td>{{studentData.gender}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Team Id:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentTid" ng-model="studentData.teamId">{{studentData.teamId}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>Team Id</td>
+                                <td>{{studentData.teamId}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Batch:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentbatch" ng-model="studentData.batch">{{studentData.batch}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>Batch</td>
+                                <td>{{studentData.batch}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">State:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentstate" ng-model="studentData.state">{{studentData.state}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>State</td>
+                                <td>{{studentData.state}}</td>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2">Parent Contact:</label>
-                        <div class="col-sm-5" style="color: black" href="#/">
-                            <label class="control-label col-sm-2" id="studentParentContact" ng-model="studentData.parentContact">{{studentData.parentContact}}</label>
-                        </div>
-                    </div>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>Parent Contact Number:</td>
+                                <td>{{studentData.parentContact}}</td>
 
-                </form>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
         </section>
     </div>
 
