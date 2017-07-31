@@ -3,6 +3,8 @@ var app = angular.module("app");
 
 app.controller("studentForum", function ($scope,$anchorScroll, $window, $compile, $filter, $http, $cookies, $location) {
 
+    $scope.custom = true;
+    $scope.custom1 = true;
     $scope.goToRespHomePage = function () {
         var type = $cookies.getObject('type');
         if (type == 1)
@@ -45,10 +47,11 @@ $scope.backToTop2 = function() {
         hpromise.then(function (response) {
             console.log(response);
             if(response.data.affectedRows>0){
+                $scope.custom1=false;
                  $scope.forumInit();
                 $scope.unansweredQuestions.push($scope.currentQuestion);
                
-                alert("Question posted successfully....");
+                
                 console.log($scope.currentQuestion);
     //             $scope.currentQuestion.contentQue = "";
     //    $scope.currentQuestion.tag = "";     
@@ -60,7 +63,7 @@ $scope.backToTop2 = function() {
         }
 } 
     else{
-        alert("You have exceeded character limit....");
+        $scope.custom=false;
     };    
     };
 

@@ -1,5 +1,5 @@
-<div class="wrap">
-    <nav class="nav-bar navbar-inverse" role="navigation">
+<div class="wrap" style="background-color: azure;overflow: scroll;">
+    <nav class="nav-bar navbar-inverse" style="background-color: darkblue;" role="navigation">
         <div id="top-menu" class="container-fluid active">
             <a class="navbar-brand" href="#" style="color: aliceblue;">DAC Forum and Mentor Assessment</a>
             <ul class="nav navbar-nav">
@@ -11,7 +11,7 @@
         </div>
     </nav>
     
-    <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
+    <aside id="side-menu" class="aside" role="navigation" style="background-color: darkslateblue;z-index:0">
 
     <ul class="nav nav-list accordion">
 
@@ -47,18 +47,12 @@
 
     <!--Body content-->
     <div class="content">
-        <!--<div class="top-bar" style="color:cornflowerblue;">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
+    
     </div>-->
-        <section class="content-inner" ng-init="loadAllMentorsDetailsForAdminLogin()">
+        <section class="content-inner" style="background: azure;overflow: scroll;" ng-init="loadAllMentorsDetailsForAdminLogin()">
 
-            <div class="container" style="width:100%">
-
-                <h2>CDAC 2017 TEAM MENTORS</h2>
+            <div class="container" style="width: 70%;margin-left: 26%;">
+            <h2>CDAC 2017 TEAM MENTORS</h2>
                 <p>Course co-ordinator: Dr. C P Johnson </p>
                 <table class="table table-hover">
                     <thead>
@@ -82,6 +76,7 @@
                         </tr>
                     </tbody>
                 </table>
+                
             </div>
 
             <div class="modal fade" id="myModal" role="dialog">

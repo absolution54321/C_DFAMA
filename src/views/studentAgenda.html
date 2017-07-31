@@ -1,7 +1,7 @@
 <div class="wrap">
-    <nav class="nav-bar navbar-inverse" role="navigation">
+    <nav class="nav-bar navbar-inverse" style="background-color: darkblue;" role="navigation">
         <div id="top-menu" class="container-fluid active">
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">DAC Forum and Mentor Assessment</a>
             <ul class="nav navbar-nav">
                 <form id="qform" class="navbar-form pull-left" role="search">
                     <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
@@ -10,7 +10,7 @@
             </ul>
         </div>
     </nav>
-    <aside id="side-menu" class="aside" role="navigation" style="z-index:0">
+    <aside id="side-menu" class="aside" role="navigation" style="background-color: darkslateblue;z-index:0">
         <ul class="nav nav-list accordion">
 
             <li class="nav-header">
@@ -37,22 +37,23 @@
 
     <!--Body content-->
     <div class="content">
-        <section class="content-inner container" style="overflow:scroll;">
+        <section class="content-inner container" style="background: azure;overflow:scroll;">
 
             <div class="row" ng-init="agendaInit()">
 
-                <div class="jumbotron form-group list-group">
+                <div class="jumbotron form-group list-group" style="background-color: honeydew;width: 73%;margin-left: 12%;margin-top: 2%;">
 
                     <label>Previous:</label>
 
-                    <div class="list-group-item" ng-repeat="item in postList">
+                    <div class="list-group-item" style="background-color: aliceblue;margin-bottom: 2%;height: 14%;" data-ng-repeat="item in postList|orderBy:'agendaDate':true">
                         <div class="row">
-                            <textarea class="form-control col-sm-6" placeholder="{{item.agendaText}}" disabled></textarea>
                             <label style="margin-top: 1%; color:dodgerblue;">
                             Scheduled Time: {{item.agendaDate}}
                             </label>
+                            <blockquote style="border-left: 5px solid cornflowerblue;" >{{item.agendaText}}</blockquote>
+                           
                             <br>
-                            <!-- <p>{{item.agendaText}}</p> -->
+                    
 
                         </div>
                     </div>

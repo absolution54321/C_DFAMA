@@ -1,58 +1,51 @@
 <div class="wrap">
-    <nav class="nav-bar navbar-inverse" role="navigation">
+    <nav class="nav-bar navbar-inverse" style="background-color: darkblue;" role="navigation">
         <div id="top-menu" class="container-fluid active">
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#" style="color: aliceblue;">DAC Forum and Mentor Assessment</a>>
             <ul class="nav navbar-nav">
                 <form id="qform" class="navbar-form pull-left" role="search">
                     <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
                 </form>
-                <li class="dropdown movable">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-4x fa-child"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#"><span class="fa fa-user"></span>My Profile</a></li>
-                        <li><a href="#"><span class="fa fa-gear"></span>Settings</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#"><span class="fa fa-power-off"></span>Logout</a></li>
-                    </ul>
-                </li>
-
             </ul>
         </div>
     </nav>
 
-    <div id="side-menu" role="navigation" style="z-index:0">
-        <ul class="nav nav-list accordion">
-            <li class="nav-header">
-                <div class="link" ng-click="goHome();"><i class="	glyphicon glyphicon-home"></i>Home</div>
-            </li>
-            <li class="nav-header">
-                <div class="link" ng-click="goTeam();"><i class="glyphicon glyphicon-stats"></i>Team Performance</div>
-            </li>
+    <aside id="side-menu" class="aside" role="navigation" style="background-color: darkslateblue;z-index:0">
 
-            <li class="nav-header">
-                <div class="link" ng-click="goToForum()"><i class="glyphicon glyphicon-comment"></i>Forum</div>
-            </li>
+    <ul class="nav nav-list accordion">
 
-            <li class="nav-header">
-                <div class="link" ng-click="go();"><i class="glyphicon glyphicon-blackboard"></i>Agenda</div>
-            </li>
+      <li class="nav-header">
+        <div class="link" ng-click="goHome();"><i class="	glyphicon glyphicon-home"></i>Home</div>
+      </li>
 
-        </ul>
-    </div>
+      <li class="nav-header">
+        <div class="link" ng-click="goToForum();"><i class="fa fa-lg fa-facebook"></i>Forum</div>
+
+      </li>
+
+      <li class="nav-header">
+        <div class="link" ng-click="goToMentorDetails();"><i class="fa fa-lg fa-users"></i>Mentor</div>
+
+      </li>
+
+      <li class="nav-header">
+        <div class="link" ng-click="goToUpload();"><i class="fa fa-lg fa-map-marker"></i>Upload</div>
+      </li>
+
+       <li class="nav-header">
+        <div class="link" ng-click="goToMarks();"><i class="fa fa-lg fa-map-marker"></i>Marks</div>
+      </li>
+    
+    </ul>
+  </aside>
 
     <!--Body content-->
     <div class="content">
-        <!-- <div class="top-bar">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div> -->
-        <section class="content-inner container" style="overflow:scroll;">
+        
+        <section class="content-inner container" style="background: azure;overflow:scroll;">
             <div class="row">
 
-                <div class="jumbotron form-group">
+                <div class="jumbotron form-group" style="width: 50%;margin-left: 25%;margin-top: 2%;background-color: honeydew;">
                     <div>
                         <form action="http://localhost:3008/uploadNewStudent" enctype="multipart/form-data" method="post">
                         <label>Upload Form for Student</label>
@@ -63,7 +56,7 @@
                     </div>
                 </div>
 
-                <div class="jumbotron form-group">
+                <div class="jumbotron form-group" style="width: 50%;margin-left: 25%;margin-top: 2%;background-color: honeydew;">
                     <div>
                         <form action="http://localhost:3008/uploadNewStudentDetails" enctype="multipart/form-data" method="post">
                         <label>Upload Form for Student Details</label>
@@ -74,7 +67,7 @@
                     </div>
                 </div>
 
-                <div class="jumbotron form-group">
+                <div class="jumbotron form-group" style="width: 50%;margin-left: 25%;margin-top: 2%;background-color: honeydew;">
                     <div>
                         <form action="http://localhost:3008/uploadNewMentor" enctype="multipart/form-data" method="post">
                         <label>Upload Form for Mentor</label>
@@ -85,7 +78,7 @@
                     </div>
                 </div>
 
-                <div class="jumbotron form-group">
+                <div class="jumbotron form-group" style="width: 50%;margin-left: 25%;margin-top: 2%;background-color: honeydew;">
                     <div>
                         <form action="http://localhost:3008/uploadNewMentorDetails" enctype="multipart/form-data" method="post">
                         <label>Upload Form for Mentor Details</label>
@@ -96,7 +89,7 @@
                     </div>
                 </div>
 
-                <div class="jumbotron form-group">
+                <div class="jumbotron form-group" style="width: 50%;margin-left: 25%;margin-top: 2%;background-color: honeydew;">
                     <div>
                         <form action="http://localhost:3008/uploadUpdateMentorDetails" enctype="multipart/form-data" method="post">
                         <label>Upload Form for Updating Mentor Details</label>

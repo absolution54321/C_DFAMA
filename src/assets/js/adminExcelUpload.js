@@ -30,6 +30,18 @@ app.controller("adminExcelUpload", function ($scope, $location, $cookies, $http)
         $location.path("/mentorDetails");
     };
 
+    $scope.goToMarks = function(){
+
+        $location.path("/adminStudentsMarks");
+
+    };
+
+    $scope.goToUpload = function(){
+
+        $location.path("/adminExcelUpload");
+
+    };
+
     $scope.loadAllSubjectWiseMarksForAdminLogin = function () {
 
         $scope.jsonObject = { "subjectName": $cookies.get('listItemClicked') }

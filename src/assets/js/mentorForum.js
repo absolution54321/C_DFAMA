@@ -2,7 +2,10 @@ var app = angular.module("app");
 
 
 app.controller("mentorForum", function ($scope,$anchorScroll,$window, $compile, $filter, $http, $cookies, $location) {
-
+$scope.custom = true;
+    $scope.custom1 = true;
+    $scope.custom2 = true;
+    $scope.custom3 = true;
     $scope.goToRespHomePage = function () {
         var type = $cookies.getObject('type');
         if (type == 1)
@@ -34,7 +37,7 @@ $scope.backToTop2 = function() {
         $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev().children().last().html();
         console.log($scope.Answers.id1);
         console.log("----------------");
-        if($scope.Answers.contentAns){
+        if($scope.Answers.contentAns.length<1500 && $scope.Answers.contentAns.length>0){
             $scope.Answers.mentorId=$cookies.get('mentorId');
             $scope.Answers.postedDate=new Date();
         $scope.jsonObj = {
@@ -52,24 +55,23 @@ $scope.backToTop2 = function() {
 
         hpromise.then(function (response) {
             if (response.data.affectedRows > 0) {
-
+                $scope.custom3=false;
                 console.log(response.data);
-                alert("Your answer is posted successfully...");
+                
             }
-            else alert("Some error occurred to post answer");
-
+           
         }).catch(function (err) {
             console.log(err);
              
         });
-        // $scope.forumInit();
+        
         $scope.answeredQuestionsAnswers.push($scope.Answers);
-        // $scope.forumInit();
+      
         }
     else{
-        alert("Write something before posting");
+        $scope.custom2=false;
     }
-    // $scope.forumInit();
+ 
     };
 $scope.hiddenDiv = false;
 $scope.hiddenAnswers = false;
@@ -95,21 +97,21 @@ $scope.Answers.questionId = angular.element($event.currentTarget).parent().prev(
         hpromise.then(function (response) {
             console.log(response);
             if (response.data.affectedRows > 0) {
-                $scope.forumInit();
+              $scope.custom1=false;
                 console.log(response.data);
-                alert("Your answer is posted successfully...");
+           
                 $scope.answeredQuestionsAnswers.push($scope.Answers);
-         $scope.forumInit();
+        
             }
 
         }).catch(function (err) {
             console.log(err);
-            alert("Some error occurred to post answer");
+           
         });
-        $scope.forumInit();
+      
         }
     else{
-        alert("You have exceeded character limit...");
+        $scope.custom=false;
     };
    
     };

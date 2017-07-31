@@ -1,7 +1,7 @@
 <div class="wrap">
-    <nav class="nav-bar navbar-inverse" role="navigation">
+    <nav class="nav-bar navbar-inverse" style="background-color: darkblue;" role="navigation">
         <div id="top-menu" class="container-fluid active">
-            <a class="navbar-brand" href="#">Brand</a>
+           <a class="navbar-brand" style="color: aliceblue;">DAC Forum and Mentor Assessment</a>
             <ul class="nav navbar-nav">
                 <form id="qform" class="navbar-form pull-left" role="search">
                     <button type="button" class="btn btn-outline-info" ng-click="performLogOut()">Logout</button>
@@ -20,7 +20,7 @@
         </div>
     </nav>
 
-    <div id="side-menu" role="navigation" style="z-index:0">
+    <aside id="side-menu" role="navigation" style="z-index:0;background-color: darkslateblue;">
         <ul class="nav nav-list accordion">
             <li class="nav-header">
                 <div class="link" ng-click="goHome();"><i class="	glyphicon glyphicon-home"></i>Home</div>
@@ -38,31 +38,26 @@
             </li>
 
         </ul>
-    </div>
+    </aside>
 
     <!--Body content-->
     <div class="content">
-        <!-- <div class="top-bar">       
-      <a href="#menu" class="side-menu-link burger"> 
-        <span class='burger_inside' id='bgrOne'></span>
-        <span class='burger_inside' id='bgrTwo'></span>
-        <span class='burger_inside' id='bgrThree'></span>
-      </a>      
-    </div> -->
-        <section class="content-inner container" style="overflow:scroll;">
+        <section class="content-inner container" style="overflow:scroll;background: azure;">
             <div class="row">
 
-                <div class="jumbotron form-group">
+                <div class="jumbotron form-group" style="background-color: honeydew;width: 73%;margin-left: 12%;margin-top: 2%;">
 
                     <label>Agenda:</label>
                     <div class="row">
 
                         <textarea class="form-control col-sm-3" placeholder="agenda for today.." ng-model="posts.agendaText" required></textarea>
                         <label style="margin-top: 1%;">Schedule Date:</label>
-                        <input type="date" class="form-control" min='2017-07-28' ng-model="posts.agendaDate">
-                        <button class="btn btn-primary btn-block" style="margin-top: 1%;" type="submit" ng-click="setAgenda()">
+                        <div class="row">
+                        <input type="date" style="width: 24%;float: left;" class="form-control" min='2017-07-28' ng-model="posts.agendaDate">
+                        <button class="btn btn-primary btn-block" style="width: 10%;margin-left: 26%;" type="submit" ng-click="setAgenda()">
                                 Set
                     </button>
+                        </div>
                     </div>
                 </div>
 
@@ -70,21 +65,21 @@
 
             <div class="row" ng-init="agendaInit()">
 
-                <div class="jumbotron form-group list-group">
+                <div class="jumbotron form-group list-group" style="background-color: honeydew;width: 73%;margin-left: 12%;margin-top: 2%;">
 
                     <label>Previous:</label>
 
-                    <div class="list-group-item" ng-repeat="item in postList">
+                    <div class="list-group-item" style="background-color: aliceblue;margin-bottom: 1%;height: 18%;" data-ng-repeat="item in postList|orderBy:'agendaDate':true">
                         <div class="row">
-                            <textarea class="form-control col-sm-6" placeholder="{{item.agendaText}}" ng-model="item.agendaText" disabled></textarea>
                             <label style="margin-top: 1%; color:dodgerblue;">
                             Scheduled Time: {{item.agendaDate}}
                             </label>
-                            <br>
-                            <!-- <p>{{item.agendaText}}</p> -->
-                            <button class="btn btn-warning" style="margin-top: 1%;" type="submit" data-toggle="modal" data-target="#updateAgenda" ng-click="setEvent($event)">
+                            <blockquote style="border-left: 5px solid cornflowerblue;" >{{item.agendaText}}</blockquote>
+                            <button class="btn btn-warning" style="margin-top: -1%;" type="submit" data-toggle="modal" data-target="#updateAgenda" ng-click="setEvent($event)">
                                         Edit
                             </button>
+                            <br>
+                    
 
                         </div>
                     </div>
